@@ -41,7 +41,7 @@ Renseignez aussi `phone` (format `+33…`), `phoneDisplay` (format affiché) et 
 1. Cloudflare → **Workers & Pages** → *Create* → *Pages* → *Connect to Git* → dépôt `odeondentaire/site`.
 2. Réglages de build : commande `npm run build`, répertoire de sortie `dist`.
 3. **R2** : créez (ou choisissez) un bucket, puis *Settings → Bindings → R2 bucket* : nom de variable **`FORMS`**.
-   Mettez aussi le nom du bucket dans `wrangler.toml` (`bucket_name`).
+   Bucket utilisé : `databasesite` (déjà renseigné dans `wrangler.toml`).
 4. (Facultatif) notification e-mail des demandes via [Resend](https://resend.com) : variables `RESEND_API_KEY`, `NOTIFY_EMAIL` (et `NOTIFY_FROM`).
    Sans cela, les demandes sont consultables dans R2 : `forms/contact/AAAA-MM-JJ/…json` et `forms/rendez-vous/…`.
 
