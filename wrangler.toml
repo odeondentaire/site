@@ -1,10 +1,14 @@
-# Configuration Cloudflare Pages (projet « odeon-dentaire »)
-name = "odeon-dentaire"
-pages_build_output_dir = "./dist"
-compatibility_date = "2026-10-01"
+# Worker Cloudflare « site » : sert le site statique (dist/) et l'API des formulaires.
+name = "site"
+main = "worker/index.js"
+compatibility_date = "2026-09-01"
+
+[assets]
+directory = "./dist"
+binding = "ASSETS"
+not_found_handling = "404-page"
 
 # Bucket R2 qui reçoit les formulaires (contact et demandes de rendez-vous).
-# Bucket R2 du compte Cloudflare : databasesite
 [[r2_buckets]]
 binding = "FORMS"
 bucket_name = "databasesite"

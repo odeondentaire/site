@@ -1,4 +1,4 @@
-// Cloudflare Pages Function : POST /api/contact
+// POST /api/contact (appelé par worker/index.js)
 // Enregistre chaque demande (contact ou rendez-vous) en JSON dans le bucket R2 lié sous le nom FORMS.
 // Notification e-mail optionnelle via Resend si RESEND_API_KEY et NOTIFY_EMAIL sont définis.
 
