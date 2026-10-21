@@ -1,0 +1,13 @@
+{
+  "name": "odeon-dentaire",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site internet du cabinet Odéon Dentaire — Dr Richard Dahan & Dr Lenny Dahan, Paris 6e",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "preview": "node build.mjs && npx --yes wrangler@3 pages dev dist",
+    "serve": "node build.mjs && python3 -m http.server 8080 -d dist"
+  },
+  "engines": { "node": ">=18" }
+}

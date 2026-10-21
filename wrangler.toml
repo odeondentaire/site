@@ -1,0 +1,10 @@
+# Configuration Cloudflare Pages (projet « odeon-dentaire »)
+name = "odeon-dentaire"
+pages_build_output_dir = "./dist"
+compatibility_date = "2026-10-01"
+
+# Bucket R2 qui reçoit les formulaires (contact et demandes de rendez-vous).
+# Remplacez bucket_name par le nom exact de votre bucket R2.
+[[r2_buckets]]
+binding = "FORMS"
+bucket_name = "odeon-dentaire"

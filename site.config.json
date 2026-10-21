@@ -1,0 +1,19 @@
+{
+  "_comment": "Paramètres du site. Modifiez ces valeurs puis relancez `npm run build`. Les champs vides sont masqués sur le site.",
+  "name": "Odéon Dentaire",
+  "siteUrl": "https://odeondentaire.com",
+  "rdvUrl": "",
+  "phone": "",
+  "phoneDisplay": "",
+  "email": "",
+  "address": {
+    "street": "132 boulevard Saint-Germain",
+    "postalCode": "75006",
+    "city": "Paris",
+    "note": "Adresse à confirmer"
+  },
+  "metro": "Odéon (lignes 4 et 10) · Mabillon (ligne 10)",
+  "hours": [
+    ["Lundi – Vendredi", "Sur rendez-vous"]
+  ]
+}

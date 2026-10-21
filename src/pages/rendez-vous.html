@@ -1,0 +1,73 @@
+---
+{"title": "Prendre rendez-vous", "description": "Prendre rendez-vous au cabinet Odéon Dentaire, Paris 6ᵉ, avec le Dr Richard Dahan ou le Dr Lenny Dahan.", "image": "/assets/img/ai/accueil.jpg"}
+---
+<header class="page-head">
+  <div class="wrap">
+    <p class="breadcrumb"><a href="/">Accueil</a><span>/</span>Rendez-vous</p>
+    <p class="eyebrow reveal">Rendez-vous</p>
+    <h1 class="display reveal reveal-d1">Prendre <em>rendez-vous.</em></h1>
+    <p class="lede reveal reveal-d2">Première consultation, bilan, avis sur un plan de traitement ou suivi : choisissez le moyen qui vous convient.</p>
+  </div>
+</header>
+
+<section class="section-tight">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <div class="contact-block">
+        <h3>En ligne</h3>
+        <!--if:rdvExternal--><p>Réservez directement un créneau, 24 h/24.</p><div class="btn-row" style="margin-top:20px"><a class="btn btn-solid btn-lg" href="{{rdvHref}}" target="_blank" rel="noopener">Réserver en ligne</a></div><!--else--><p>La réservation en ligne sera disponible très prochainement. En attendant, adressez-nous votre demande via le formulaire&nbsp;: le secrétariat vous rappelle pour convenir d'un créneau.</p><!--endif:rdvExternal-->
+      </div>
+      <!--if:phone--><div class="contact-block"><h3>Par téléphone</h3><p><a href="tel:{{phone}}">{{phoneDisplay}}</a></p></div><!--endif:phone-->
+      <div class="contact-block">
+        <h3>Adresse</h3>
+        <p>{{street}}<br>{{postalCode}} {{city}}</p>
+        <p class="small muted" style="font-family:var(--sans);margin-top:6px">Métro {{metro}}</p>
+      </div>
+      <div class="contact-block">
+        <h3>Votre première visite</h3>
+        <ul class="checklist" style="margin-top:10px">
+          <li>Carte Vitale et attestation de mutuelle</li>
+          <li>Liste de vos traitements en cours et ordonnances</li>
+          <li>Radiographies ou bilans récents, le cas échéant</li>
+          <li>Courrier de votre médecin ou oncologue, si vous êtes adressé(e)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="reveal reveal-d1">
+      <h2 class="h3" style="margin-bottom:10px">Demande de rendez-vous</h2>
+      <p class="muted" style="margin-bottom:36px">Indiquez vos disponibilités : le secrétariat vous recontacte pour confirmer le rendez-vous. Cette demande ne vaut pas confirmation.</p>
+      <form class="form" data-form="rendez-vous" novalidate>
+        <div class="field"><label for="r-prenom">Prénom</label><input id="r-prenom" name="prenom" autocomplete="given-name" required></div>
+        <div class="field"><label for="r-nom">Nom</label><input id="r-nom" name="nom" autocomplete="family-name" required></div>
+        <div class="field"><label for="r-email">E-mail</label><input id="r-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field"><label for="r-tel">Téléphone</label><input id="r-tel" name="telephone" type="tel" autocomplete="tel" required></div>
+        <div class="field"><label for="r-praticien">Praticien</label>
+          <select id="r-praticien" name="praticien">
+            <option>Indifférent</option>
+            <option>Dr Richard Dahan</option>
+            <option>Dr Lenny Dahan</option>
+          </select>
+        </div>
+        <div class="field"><label for="r-motif">Motif</label>
+          <select id="r-motif" name="motif">
+            <option>Première consultation / bilan</option>
+            <option>Parodontologie</option>
+            <option>Implantologie &amp; chirurgie</option>
+            <option>Dentisterie esthétique</option>
+            <option>Prothèse &amp; réhabilitation</option>
+            <option>Accompagnement en cancérologie</option>
+            <option>Urgence / douleur</option>
+            <option>Contrôle / détartrage</option>
+          </select>
+        </div>
+        <div class="field full"><label for="r-dispo">Vos disponibilités</label><input id="r-dispo" name="disponibilites" placeholder="Ex. : mardi et jeudi matin, à partir de 17 h…"></div>
+        <div class="field full"><label for="r-msg">Message (facultatif)</label><textarea id="r-msg" name="message"></textarea></div>
+        <div class="hp" aria-hidden="true"><label>Ne pas remplir <input name="website" tabindex="-1" autocomplete="off"></label></div>
+        <label class="consent full"><input type="checkbox" name="consentement" value="oui" required> J'accepte que mes données soient utilisées par le cabinet pour traiter ma demande de rendez-vous, conformément à la <a href="/mentions-legales#confidentialite" style="text-decoration:underline">politique de confidentialité</a>.</label>
+        <div class="full"><button class="btn btn-solid btn-lg" type="submit">Envoyer ma demande</button></div>
+        <p class="form-status full" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
