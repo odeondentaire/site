@@ -3,17 +3,22 @@
   "name": "Odéon Dentaire",
   "siteUrl": "https://odeondentaire.com",
   "rdvUrl": "",
-  "phone": "",
-  "phoneDisplay": "",
-  "email": "",
+  "phones": [
+    { "tel": "+33652669221", "display": "06 52 66 92 21" },
+    { "tel": "+33661078566", "display": "06 61 07 85 66" }
+  ],
+  "email": "odeondentaire@gmail.com",
   "address": {
     "street": "132 boulevard Saint-Germain",
     "postalCode": "75006",
     "city": "Paris",
-    "note": "Adresse à confirmer"
+    "lat": 48.85235,
+    "lng": 2.33945
   },
   "metro": "Odéon (lignes 4 et 10) · Mabillon (ligne 10)",
   "hours": [
-    ["Lundi – Vendredi", "Sur rendez-vous"]
-  ]
+    ["Lundi – Vendredi", "9 h – 19 h"],
+    ["Samedi – Dimanche", "Fermé"]
+  ],
+  "openingHours": { "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "19:00" }
 }

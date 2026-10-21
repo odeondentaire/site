@@ -1,5 +1,5 @@
 ---
-{"title": "Contact & accès", "description": "Contacter le cabinet Odéon Dentaire, Paris 6ᵉ : adresse, accès (métro Odéon), horaires et formulaire de contact.", "nav": "contact", "image": "/assets/img/ai/facade.jpg"}
+{"title": "Contact & accès", "description": "Cabinet dentaire Odéon Dentaire, 132 boulevard Saint-Germain, 75006 Paris (métro Odéon). Ouvert du lundi au vendredi de 9 h à 19 h. Téléphone : 06 52 66 92 21 · 06 61 07 85 66.", "nav": "contact", "image": "/assets/img/ai/facade.jpg"}
 ---
 <header class="page-head">
   <div class="wrap">
@@ -22,11 +22,16 @@
         <h3>Accès</h3>
         <p>Métro {{metro}}</p>
       </div>
-      <!--if:phone--><div class="contact-block"><h3>Téléphone</h3><p><a href="tel:{{phone}}">{{phoneDisplay}}</a></p></div><!--endif:phone-->
+      <!--if:phone--><div class="contact-block"><h3>Téléphone</h3><p>{{phoneLinks}}</p></div><!--endif:phone-->
       <!--if:email--><div class="contact-block"><h3>E-mail</h3><p><a href="mailto:{{email}}">{{email}}</a></p></div><!--endif:email-->
       <div class="contact-block">
         <h3>Horaires</h3>
         <ul class="hours" style="font-family:var(--serif);font-size:21px">{{hours}}</ul>
+      </div>
+      <div class="contact-block">
+        <h3>Conventionnement</h3>
+        <p>Dr Richard Dahan : conventionné secteur 1</p>
+        <p class="muted" style="font-family:var(--sans);font-size:15px;margin-top:6px">Carte Vitale acceptée : télétransmission pour des remboursements plus rapides.</p>
       </div>
       <div class="map">
         <iframe title="Plan d'accès au cabinet" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=2.3335%2C48.8495%2C2.3455%2C48.8555&amp;layer=mapnik&amp;marker=48.85235%2C2.33945"></iframe>
@@ -53,7 +58,7 @@
         </div>
         <div class="field full"><label for="c-msg">Message</label><textarea id="c-msg" name="message" required></textarea></div>
         <div class="hp" aria-hidden="true"><label>Ne pas remplir <input name="website" tabindex="-1" autocomplete="off"></label></div>
-        <label class="consent full"><input type="checkbox" name="consentement" value="oui" required> J'accepte que mes données soient utilisées par le cabinet pour répondre à ma demande, conformément à la <a href="/mentions-legales#confidentialite" style="text-decoration:underline">politique de confidentialité</a>.</label>
+        <label class="consent full"><input type="checkbox" name="consentement" value="oui" required> <span>J'accepte que mes données soient utilisées par le cabinet pour répondre à ma demande, conformément à la <a href="/mentions-legales#confidentialite" style="text-decoration:underline">politique de confidentialité</a>.</span></label>
         <div class="full"><button class="btn btn-solid btn-lg" type="submit">Envoyer</button></div>
         <p class="form-status full" role="status" aria-live="polite"></p>
       </form>

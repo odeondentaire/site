@@ -34,7 +34,7 @@ Dans `site.config.json`, renseignez `rdvUrl` (Doctolib, Maiia…) puis reconstru
 Tous les boutons « Prendre rendez-vous » (en-tête, accueil, bandeau, bouton flottant mobile, pages) pointeront alors vers ce lien, dans un nouvel onglet.
 Tant que `rdvUrl` est vide, ils mènent à la page `/rendez-vous` (formulaire de demande enregistré dans R2).
 
-Renseignez aussi `phone` (format `+33…`), `phoneDisplay` (format affiché) et `email` : ils s'affichent automatiquement lorsqu'ils sont remplis.
+Téléphones (`phones`), e-mail, adresse et horaires se règlent aussi dans `site.config.json`.
 
 ## Déploiement sur Cloudflare (Worker « site »)
 
@@ -63,11 +63,16 @@ Méthode recommandée : déléguer le domaine à Cloudflare.
 
 ⚠️ Si des e-mails utilisent déjà ce domaine (MX GoDaddy / Microsoft 365), recopiez les enregistrements MX/TXT dans Cloudflare avant de changer les serveurs de noms.
 
-## À compléter avant la mise en ligne
+## Référencement (SEO et assistants IA)
 
-- Téléphone, e-mail, horaires et confirmation de l'adresse (`site.config.json`)
+- Données structurées schema.org (`Dentist`) générées par `build.mjs` à partir de `site.config.json`
+- Version anglaise : `src/pages/en/index.html` (gabarit `src/layout-en.html`), liée par `hreflang`
+- `robots.txt` ouvert aux moteurs et aux robots IA, `llms.txt` (résumé du cabinet pour les assistants IA), `sitemap.xml` daté
+
+## Reste à compléter
+
 - Lien de prise de rendez-vous (`rdvUrl`)
-- Mentions légales : raison sociale, SIRET, n° RPPS, situation conventionnelle, assurance RCP (`src/pages/mentions-legales.html`, passages surlignés)
-- Plateau technique : vérifier que la liste d'équipements (`src/pages/cabinet.html`) correspond au cabinet
-- Photographies réelles : remplacer les visuels provisoires générés par IA (`src/assets/img/ai/`) en conservant les mêmes noms de fichiers ; portrait du Dr Lenny Dahan (remplacer le monogramme « LD » dans `index.html` et `equipe.html`)
+- N° RPPS du Dr Lenny Dahan (mentions légales)
+- Plateau technique : confirmer la liste d'équipements (`src/pages/cabinet.html`)
+- Photographies réelles à la place des visuels IA (`src/assets/img/ai/`, mêmes noms de fichiers) et portrait du Dr Lenny Dahan
 - Vidéo d'ambiance de l'accueil : emplacement prévu en commentaire dans `src/pages/index.html`

@@ -1,0 +1,25 @@
+# Odéon Dentaire
+
+> Cabinet de chirurgie dentaire situé au 132 boulevard Saint-Germain, 75006 Paris (métro Odéon, lignes 4 et 10 ; Mabillon, ligne 10), dans le quartier de l'Odéon / Saint-Germain-des-Prés. Praticiens : Dr Richard Dahan et Dr Lenny Dahan, chirurgiens-dentistes. Ouvert du lundi au vendredi de 9 h à 19 h. Téléphone : +33 6 52 66 92 21 · +33 6 61 07 85 66. E-mail : odeondentaire@gmail.com. Dr Richard Dahan conventionné secteur 1, Carte Vitale acceptée. Consultations en français et en anglais.
+
+English: Odéon Dentaire is a dental practice (dentist) in Paris 6th arrondissement, Odéon / Saint-Germain-des-Prés, at 132 boulevard Saint-Germain, 75006 Paris. Dentists: Dr Richard Dahan and Dr Lenny Dahan. Open Monday–Friday 9 am–7 pm. English spoken.
+
+## Soins proposés
+- [Parodontologie & régénération](https://odeondentaire.com/expertises/parodontologie/) : gingivite, parodontite, surfaçage, greffes de gencive, régénération, maintenance
+- [Implantologie & chirurgie](https://odeondentaire.com/expertises/implantologie-chirurgie/) : implants dentaires, chirurgie guidée, greffes osseuses, sinus lift, All-on-4, dents de sagesse
+- [Dentisterie esthétique](https://odeondentaire.com/expertises/dentisterie-esthetique/) : facettes céramiques, éclaircissement, restaurations collées, élongation coronaire
+- [Prothèse & réhabilitation](https://odeondentaire.com/expertises/prothese-rehabilitation/) : couronnes, bridges, prothèses sur implants, empreinte optique, CFAO
+- [Santé orale & cancérologie](https://odeondentaire.com/expertises/sante-orale-cancerologie/) : accompagnement bucco-dentaire avant, pendant et après les traitements du cancer
+- Soins courants, détartrage, caries, dévitalisation, urgences dentaires
+
+## Praticiens
+- [Dr Richard Dahan](https://odeondentaire.com/equipe/#richard-dahan) : docteur en chirurgie dentaire (Université Paris Diderot), post-graduate en implantologie (New York University), exerce depuis 1985, installé à Paris 6ᵉ depuis 2001. Enseignant universitaire. Fondateur et président de la Société française de dentisterie en cancérologie (SFDC), lauréate du Prix Ruban Rose Qualité de Vie 2026.
+- [Dr Lenny Dahan](https://odeondentaire.com/equipe/#lenny-dahan) : docteur en chirurgie dentaire (Université Paris Cité), docteur en pharmacie (Université Paris Descartes), formé à l'AP-HP (Pitié-Salpêtrière, Bretonneau). Chirurgie orale, parodontie, prothèse numérique, dentisterie adhésive.
+
+## Pages utiles
+- [Accueil](https://odeondentaire.com/)
+- [English version](https://odeondentaire.com/en/)
+- [Le cabinet et le plateau technique](https://odeondentaire.com/cabinet/)
+- [Contact, accès et horaires](https://odeondentaire.com/contact/)
+- [Prendre rendez-vous](https://odeondentaire.com/rendez-vous/)
+- [Presse : tribune Prix Ruban Rose](https://odeondentaire.com/actualites/prix-ruban-rose-ruban-du-sourire/)

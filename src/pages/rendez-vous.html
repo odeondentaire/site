@@ -17,11 +17,11 @@
         <h3>En ligne</h3>
         <!--if:rdvExternal--><p>Réservez directement un créneau, 24 h/24.</p><div class="btn-row" style="margin-top:20px"><a class="btn btn-solid btn-lg" href="{{rdvHref}}" target="_blank" rel="noopener">Réserver en ligne</a></div><!--else--><p>La réservation en ligne sera disponible très prochainement. En attendant, adressez-nous votre demande via le formulaire&nbsp;: le secrétariat vous rappelle pour convenir d'un créneau.</p><!--endif:rdvExternal-->
       </div>
-      <!--if:phone--><div class="contact-block"><h3>Par téléphone</h3><p><a href="tel:{{phone}}">{{phoneDisplay}}</a></p></div><!--endif:phone-->
+      <!--if:phone--><div class="contact-block"><h3>Par téléphone</h3><p>{{phoneLinks}}</p><p class="muted" style="font-family:var(--sans);font-size:15px;margin-top:6px">Du lundi au vendredi, de 9 h à 19 h</p></div><!--endif:phone-->
       <div class="contact-block">
         <h3>Adresse</h3>
         <p>{{street}}<br>{{postalCode}} {{city}}</p>
-        <p class="small muted" style="font-family:var(--sans);margin-top:6px">Métro {{metro}}</p>
+        <p class="muted" style="font-family:var(--sans);font-size:15px;margin-top:6px">Métro {{metro}}</p>
       </div>
       <div class="contact-block">
         <h3>Votre première visite</h3>
@@ -64,7 +64,7 @@
         <div class="field full"><label for="r-dispo">Vos disponibilités</label><input id="r-dispo" name="disponibilites" placeholder="Ex. : mardi et jeudi matin, à partir de 17 h…"></div>
         <div class="field full"><label for="r-msg">Message (facultatif)</label><textarea id="r-msg" name="message"></textarea></div>
         <div class="hp" aria-hidden="true"><label>Ne pas remplir <input name="website" tabindex="-1" autocomplete="off"></label></div>
-        <label class="consent full"><input type="checkbox" name="consentement" value="oui" required> J'accepte que mes données soient utilisées par le cabinet pour traiter ma demande de rendez-vous, conformément à la <a href="/mentions-legales#confidentialite" style="text-decoration:underline">politique de confidentialité</a>.</label>
+        <label class="consent full"><input type="checkbox" name="consentement" value="oui" required> <span>J'accepte que mes données soient utilisées par le cabinet pour traiter ma demande de rendez-vous, conformément à la <a href="/mentions-legales#confidentialite" style="text-decoration:underline">politique de confidentialité</a>.</span></label>
         <div class="full"><button class="btn btn-solid btn-lg" type="submit">Envoyer ma demande</button></div>
         <p class="form-status full" role="status" aria-live="polite"></p>
       </form>

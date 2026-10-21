@@ -6,6 +6,7 @@
   <title>{{title}}</title>
   <meta name="description" content="{{description}}">
   <link rel="canonical" href="{{canonical}}">
+  {{hreflang}}
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="{{name}}">
@@ -18,20 +19,7 @@
   <link rel="preload" href="/assets/fonts/cormorant-garamond-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/jost-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/css/style.css">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Dentist",
-    "name": "{{name}}",
-    "url": "{{siteUrl}}",
-    "image": "{{siteUrl}}/assets/img/ai/hero.jpg",
-    "address": {"@type": "PostalAddress", "streetAddress": "{{street}}", "postalCode": "{{postalCode}}", "addressLocality": "{{city}}", "addressCountry": "FR"},
-    "employee": [
-      {"@type": "Person", "name": "Dr Richard Dahan", "jobTitle": "Chirurgien-dentiste"},
-      {"@type": "Person", "name": "Dr Lenny Dahan", "jobTitle": "Chirurgien-dentiste"}
-    ]
-  }
-  </script>
+  <script type="application/ld+json">{{jsonLd}}</script>
 </head>
 <body class="{{bodyClass}}">
   <a class="skip" href="#contenu">Aller au contenu</a>
@@ -59,6 +47,7 @@
           <li><a href="/equipe" {{nav_equipe}}>Les praticiens</a></li>
           <li><a href="/actualites" {{nav_actualites}}>Presse &amp; actualités</a></li>
           <li><a href="/contact" {{nav_contact}}>Contact</a></li>
+          <li><a href="{{altHref}}" hreflang="en" lang="en" class="nav-lang" title="English version">EN</a></li>
         </ul>
         <a class="btn btn-solid nav-rdv" href="{{rdvHref}}" {{rdvAttrs}} data-rdv>Prendre rendez-vous</a>
       </nav>
@@ -90,7 +79,7 @@
           <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M8 34V18a12 12 0 0 1 24 0v16" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M14 34V19a6 6 0 0 1 12 0v15" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M5 34h30" stroke="currentColor" stroke-width="1.2"/></svg>
           <span class="brand-text"><span class="brand-name">Odéon</span><span class="brand-sub">Dentaire</span></span>
         </a>
-        <p>Cabinet de chirurgie dentaire<br>Dr Richard Dahan · Dr Lenny Dahan</p>
+        <p>Cabinet de chirurgie dentaire à Odéon, Paris 6ᵉ<br>Dr Richard Dahan · Dr Lenny Dahan</p>
       </div>
       <div>
         <h3 class="footer-title">Adresse</h3>
@@ -100,8 +89,9 @@
       <div>
         <h3 class="footer-title">Horaires</h3>
         <ul class="hours">{{hours}}</ul>
-        <!--if:phone--><p><a href="tel:{{phone}}">{{phoneDisplay}}</a></p><!--endif:phone-->
+        <!--if:phone--><p>{{phoneLinks}}</p><!--endif:phone-->
         <!--if:email--><p><a href="mailto:{{email}}">{{email}}</a></p><!--endif:email-->
+        <p class="muted">Dr Richard Dahan conventionné secteur 1 · Carte Vitale acceptée</p>
       </div>
       <div>
         <h3 class="footer-title">Expertises</h3>

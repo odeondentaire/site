@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{title}}</title>
+  <meta name="description" content="{{description}}">
+  <link rel="canonical" href="{{canonical}}">
+  {{hreflang}}
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:site_name" content="{{name}}">
+  <meta property="og:title" content="{{title}}">
+  <meta property="og:description" content="{{description}}">
+  <meta property="og:url" content="{{canonical}}">
+  <meta property="og:image" content="{{ogImage}}">
+  <meta name="theme-color" content="#F5F1EA">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/assets/fonts/cormorant-garamond-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/jost-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script type="application/ld+json">{{jsonLd}}</script>
+</head>
+<body class="{{bodyClass}}">
+  <a class="skip" href="#content">Skip to content</a>
+
+  <header class="site-header" data-header>
+    <div class="wrap header-inner">
+      <a class="brand" href="/en/" aria-label="{{name}} — home">
+        <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M8 34V18a12 12 0 0 1 24 0v16" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M14 34V19a6 6 0 0 1 12 0v15" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M5 34h30" stroke="currentColor" stroke-width="1.2"/></svg>
+        <span class="brand-text"><span class="brand-name">Odéon</span><span class="brand-sub">Dentaire</span></span>
+      </a>
+
+      <nav class="nav" aria-label="Main navigation" data-nav>
+        <ul class="nav-list">
+          <li><a href="/en/#treatments">Treatments</a></li>
+          <li><a href="/en/#practice">The practice</a></li>
+          <li><a href="/en/#dentists">Our dentists</a></li>
+          <li><a href="/en/#visit">Visit us</a></li>
+          <li><a href="{{altHref}}" hreflang="fr" lang="fr" class="nav-lang" title="Version française">FR</a></li>
+        </ul>
+        <a class="btn btn-solid nav-rdv" href="{{rdvHref}}" {{rdvAttrs}} data-rdv>Book an appointment</a>
+      </nav>
+
+      <button class="burger" type="button" aria-label="Open menu" aria-expanded="false" data-burger><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main id="content">
+{{content}}
+  </main>
+
+  <section class="rdv-band">
+    <div class="wrap rdv-band-inner reveal">
+      <p class="eyebrow">Consultation</p>
+      <h2 class="display">A first appointment<br><em>to take stock, calmly.</em></h2>
+      <p class="lede">Your first visit is a time for listening and a thorough examination, leading to a precise diagnosis and, where needed, a treatment plan explained in detail.</p>
+      <div class="btn-row">
+        <a class="btn btn-solid btn-lg" href="{{rdvHref}}" {{rdvAttrs}} data-rdv>Book an appointment</a>
+        <!--if:phone--><a class="btn btn-ghost btn-lg" href="tel:{{phone}}">{{phoneDisplay}}</a><!--endif:phone-->
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div class="footer-brand">
+        <a class="brand brand-light" href="/en/">
+          <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M8 34V18a12 12 0 0 1 24 0v16" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M14 34V19a6 6 0 0 1 12 0v15" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M5 34h30" stroke="currentColor" stroke-width="1.2"/></svg>
+          <span class="brand-text"><span class="brand-name">Odéon</span><span class="brand-sub">Dentaire</span></span>
+        </a>
+        <p>Dental practice in Odéon, Paris 6th<br>Dr Richard Dahan · Dr Lenny Dahan</p>
+      </div>
+      <div>
+        <h3 class="footer-title">Address</h3>
+        <p>{{street}}<br>{{postalCode}} {{city}}, France</p>
+        <p class="muted">Metro {{metro}}</p>
+      </div>
+      <div>
+        <h3 class="footer-title">Opening hours</h3>
+        <ul class="hours"><li><span>Monday – Friday</span><span>9 am – 7 pm</span></li><li><span>Weekend</span><span>Closed</span></li></ul>
+        <!--if:phone--><p>{{phoneLinksIntl}}</p><!--endif:phone-->
+        <!--if:email--><p><a href="mailto:{{email}}">{{email}}</a></p><!--endif:email-->
+      </div>
+      <div>
+        <h3 class="footer-title">En français</h3>
+        <ul class="footer-links">
+          <li><a href="/expertises" hreflang="fr">Expertises</a></li>
+          <li><a href="/cabinet" hreflang="fr">Le cabinet</a></li>
+          <li><a href="/equipe" hreflang="fr">Les praticiens</a></li>
+          <li><a href="/contact" hreflang="fr">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="wrap footer-bottom">
+      <p>© {{year}} {{name}}. Information website in accordance with the French Dental Council (ONCD) guidelines.</p>
+      <p><a href="/mentions-legales" hreflang="fr">Legal notice &amp; privacy (FR)</a></p>
+    </div>
+  </footer>
+
+  <a class="rdv-sticky" href="{{rdvHref}}" {{rdvAttrs}} data-rdv>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M3.5 10h17M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.4"/></svg>
+    Book an appointment
+  </a>
+
+  <script src="/assets/js/main.js" defer></script>
+</body>
+</html>
