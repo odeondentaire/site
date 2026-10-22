@@ -56,7 +56,7 @@ const jsonLd = JSON.stringify({
       alternateName: ["Odeon Dentaire", "Cabinet dentaire Odéon — Dr Richard Dahan"],
       description: "Cabinet de chirurgie dentaire à Odéon, Paris 6ᵉ : parodontologie, implantologie et chirurgie, dentisterie esthétique, prothèse et réhabilitation, accompagnement bucco-dentaire en cancérologie.",
       url: `${config.siteUrl}/`,
-      image: [`${config.siteUrl}/assets/img/facade-cabinet.jpg`, `${config.siteUrl}/assets/img/passage-du-commerce.jpg`, `${config.siteUrl}/assets/img/ai/hero.jpg`],
+      image: [`${config.siteUrl}/assets/img/facade-cabinet.jpg`, `${config.siteUrl}/assets/img/passage-du-commerce.jpg`, `${config.siteUrl}/assets/img/salle-de-soins-1.jpg`, `${config.siteUrl}/assets/img/salle-de-soins-2.jpg`, `${config.siteUrl}/assets/img/salle-de-soins-3.jpg`],
       logo: `${config.siteUrl}/assets/img/favicon.svg`,
       telephone: phones.map((p) => p.tel),
       email: config.email || undefined,

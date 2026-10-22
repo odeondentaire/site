@@ -74,5 +74,5 @@ Méthode recommandée : déléguer le domaine à Cloudflare.
 - Lien de prise de rendez-vous (`rdvUrl`)
 - N° RPPS du Dr Lenny Dahan (mentions légales)
 - Plateau technique : confirmer la liste d'équipements (`src/pages/cabinet.html`)
-- Photographies réelles de l'intérieur à la place des visuels IA (`src/assets/img/ai/`, mêmes noms de fichiers)
+- (Facultatif) photos réelles pour remplacer les natures mortes IA des pages d'expertise (`src/assets/img/ai/`, mêmes noms de fichiers)
 - Vidéo d'ambiance de l'accueil : emplacement prévu en commentaire dans `src/pages/index.html`

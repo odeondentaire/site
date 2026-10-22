@@ -188,7 +188,9 @@ body.has-hero .site-header:not(.is-scrolled) .btn-solid:hover { background: var(
 .hero-media img, .hero-media video { width: 100%; height: 100%; object-fit: cover; animation: slowzoom 24s var(--ease) both; }
 .hero-media::after {
   content: ""; position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(20,26,22,.45) 0%, rgba(20,26,22,.12) 35%, rgba(20,26,22,.62) 100%);
+  background:
+    linear-gradient(90deg, rgba(20,26,22,.72) 0%, rgba(20,26,22,.45) 45%, rgba(20,26,22,.1) 80%),
+    linear-gradient(180deg, rgba(20,26,22,.45) 0%, rgba(20,26,22,.1) 35%, rgba(20,26,22,.55) 100%);
 }
 @keyframes slowzoom { from { transform: scale(1.12); } to { transform: scale(1); } }
 .hero-content { position: relative; padding-bottom: clamp(56px, 9vw, 120px); padding-top: 140px; }
@@ -472,6 +474,14 @@ body.has-hero .site-header:not(.is-scrolled) .btn-solid:hover { background: var(
 .access-photos figcaption { font-size: 13px; color: var(--taupe); margin-top: 12px; }
 @media (max-width: 760px) { .access-photos { grid-template-columns: 1fr; } .access-photos figure:last-child img { aspect-ratio: 4 / 3; } }
 .portrait-lenny { object-position: center 18%; }
+
+/* Galerie */
+.gallery { display: grid; grid-template-columns: 2fr 1fr; grid-template-rows: 1fr 1fr; gap: clamp(12px, 2vw, 24px); }
+.gallery figure { margin: 0; overflow: hidden; background: var(--stone); }
+.gallery figure:first-child { grid-row: 1 / 3; }
+.gallery img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
+.gallery figure:hover img { transform: scale(1.03); }
+@media (max-width: 760px) { .gallery { grid-template-columns: 1fr; grid-template-rows: none; } .gallery figure:first-child { grid-row: auto; } .gallery img { aspect-ratio: 3 / 2; } }
 
 /* Mentions */
 .legal h2 { font-family: var(--serif); font-size: 30px; margin: 48px 0 14px; }
