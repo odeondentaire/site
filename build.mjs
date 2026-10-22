@@ -56,7 +56,7 @@ const jsonLd = JSON.stringify({
       alternateName: ["Odeon Dentaire", "Cabinet dentaire Odéon — Dr Richard Dahan"],
       description: "Cabinet de chirurgie dentaire à Odéon, Paris 6ᵉ : parodontologie, implantologie et chirurgie, dentisterie esthétique, prothèse et réhabilitation, accompagnement bucco-dentaire en cancérologie.",
       url: `${config.siteUrl}/`,
-      image: `${config.siteUrl}/assets/img/ai/hero.jpg`,
+      image: [`${config.siteUrl}/assets/img/facade-cabinet.jpg`, `${config.siteUrl}/assets/img/passage-du-commerce.jpg`, `${config.siteUrl}/assets/img/ai/hero.jpg`],
       logo: `${config.siteUrl}/assets/img/favicon.svg`,
       telephone: phones.map((p) => p.tel),
       email: config.email || undefined,
@@ -72,7 +72,7 @@ const jsonLd = JSON.stringify({
       availableService: ["Parodontologie", "Implants dentaires", "Chirurgie guidée", "Greffe osseuse", "Facettes céramiques", "Éclaircissement dentaire", "Couronnes et bridges", "Soins dentaires et urgences", "Santé orale et cancer"].map((n) => ({ "@type": "MedicalProcedure", name: n })),
       employee: [
         { "@type": "Person", "@id": `${config.siteUrl}/equipe/#richard-dahan`, name: "Dr Richard Dahan", jobTitle: "Chirurgien-dentiste", honorificPrefix: "Dr", alumniOf: ["Université Paris Diderot", "New York University"], memberOf: "Société française de dentisterie en cancérologie (SFDC)", image: `${config.siteUrl}/assets/img/dr-richard-dahan.jpg`, url: `${config.siteUrl}/equipe/#richard-dahan` },
-        { "@type": "Person", "@id": `${config.siteUrl}/equipe/#lenny-dahan`, name: "Dr Lenny Dahan", jobTitle: "Chirurgien-dentiste", honorificPrefix: "Dr", alumniOf: ["Université Paris Cité", "Université Paris Descartes", "HEC Paris"], url: `${config.siteUrl}/equipe/#lenny-dahan` },
+        { "@type": "Person", "@id": `${config.siteUrl}/equipe/#lenny-dahan`, name: "Dr Lenny Dahan", jobTitle: "Chirurgien-dentiste", honorificPrefix: "Dr", alumniOf: ["Université Paris Cité", "Université Paris Descartes", "HEC Paris"], image: `${config.siteUrl}/assets/img/dr-lenny-dahan-portrait.jpg`, url: `${config.siteUrl}/equipe/#lenny-dahan` },
       ],
       sameAs: [config.rdvUrl].filter(Boolean),
     },
@@ -130,7 +130,7 @@ for (const file of walk(join(SRC, "pages"))) {
     description: meta.description || "",
     canonical: config.siteUrl + path,
     bodyClass: meta.bodyClass || "",
-    ogImage: config.siteUrl + (meta.image || "/assets/img/ai/hero.jpg"),
+    ogImage: config.siteUrl + (meta.image || "/assets/img/facade-cabinet.jpg"),
     content: render(body),
     ...Object.fromEntries(["expertises", "cabinet", "equipe", "actualites", "contact"].map((k) => [`nav_${k}`, nav === k ? 'aria-current="page"' : ""])),
   });
