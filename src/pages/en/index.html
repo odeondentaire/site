@@ -1,66 +1,32 @@
 ---
 {"lang": "en", "alternate": "/", "fullTitle": "Dentist in Odéon, Paris 6th — Odéon Dentaire | Dr Richard & Dr Lenny Dahan", "description": "English-speaking dentist in Paris, Odéon / Saint-Germain-des-Prés (6th arrondissement). Periodontics, dental implants, cosmetic dentistry, crowns and bridges, emergencies. 132 boulevard Saint-Germain, Mon–Fri 9 am–7 pm.", "bodyClass": "has-hero"}
 ---
-<section class="hero">
-  <div class="hero-media">
-    <img src="/assets/img/salle-de-soins-1.jpg" alt="Treatment room at Odéon Dentaire, French window opening onto a Parisian balcony" fetchpriority="high">
-  </div>
-  <div class="wrap hero-content">
-    <p class="eyebrow reveal">Dental practice · Paris 6th · Odéon</p>
-    <h1 class="display reveal reveal-d1">Your dentist in Odéon, <em>Saint-Germain-des-Prés.</em></h1>
-    <p class="lede reveal reveal-d2">Periodontics, dental implants, cosmetic dentistry and full-mouth rehabilitation. On the Left Bank, Dr Richard Dahan and Dr Lenny Dahan offer comprehensive, precise and attentive dental care, in French and in English.</p>
-    <div class="btn-row reveal reveal-d3">
-      <a class="btn btn-solid btn-lg" href="{{rdvHref}}" {{rdvAttrs}} data-rdv>Book an appointment</a>
-      <a class="btn btn-ghost btn-lg" href="#visit">Find us</a>
-    </div>
-  </div>
-</section>
-
-<section class="section manifesto">
+<section class="hero-split">
   <div class="wrap">
-    <p class="eyebrow center reveal">Our approach</p>
-    <blockquote class="reveal reveal-d1">Before any cosmetic work, we take care of the foundations: <em>the gums, the bone, the balance of the mouth.</em> A beautiful smile is first and foremost a healthy one.</blockquote>
-    <div class="principles">
-      <div class="principle reveal"><span class="principle-num">01</span><h3>A thorough diagnosis</h3><p>Clinical examination, periodontal assessment and 3D imaging: every plan starts with a clear understanding of your situation.</p></div>
-      <div class="principle reveal reveal-d1"><span class="principle-num">02</span><h3>Tissue preservation</h3><p>Minimally invasive, biomimetic techniques that keep as much of your natural teeth, gums and bone as possible.</p></div>
-      <div class="principle reveal reveal-d2"><span class="principle-num">03</span><h3>Tailored care</h3><p>Treatment plans explained in plain language, time to ask questions, and long-term follow-up.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="section bg-paper" id="treatments">
-  <div class="wrap">
-    <div class="section-head">
+    <div class="hero-split-grid">
       <div>
-        <p class="eyebrow reveal">Treatments</p>
-        <h2 class="h2 reveal reveal-d1">Complete dental care,<br><em>one coherent plan.</em></h2>
+        <p class="eyebrow reveal">Dental practice · Paris 6th</p>
+        <h1 class="display reveal reveal-d1">Your dentist <em>in Odéon.</em></h1>
+        <p class="lede reveal reveal-d2">Dr Richard Dahan and Dr Lenny Dahan, dental surgeons. Periodontics, dental implants, cosmetic dentistry, crowns and bridges, general dentistry and emergencies. English spoken.</p>
+        <div class="btn-row reveal reveal-d3">
+          <a class="btn btn-solid btn-lg" href="{{rdvHref}}" {{rdvAttrs}} data-rdv>Book an appointment</a>
+          <!--if:phone--><a class="btn btn-ghost btn-lg" href="tel:{{phone}}">Call the practice</a><!--endif:phone-->
+        </div>
       </div>
-      <p class="lede reveal reveal-d2">From routine check-ups to complex surgery, every treatment is designed for a functional, lasting and natural-looking result.</p>
+      <div class="hero-split-media reveal reveal-d2">
+        <img src="/assets/img/salle-de-soins-2.jpg" alt="Treatment room at Odéon Dentaire" fetchpriority="high">
+      </div>
     </div>
-    <ul class="detail-list reveal">
-      <li><strong>Periodontics</strong><span>Gum disease treatment (gingivitis, periodontitis), deep cleaning and root planing, gum grafts for recessions, regenerative surgery and maintenance.</span></li>
-      <li><strong>Dental implants &amp; oral surgery</strong><span>Single and multiple implants, computer-guided surgery, bone grafts and sinus lifts, full-arch fixed solutions (All-on-4 type), wisdom teeth and complex extractions.</span></li>
-      <li><strong>Cosmetic dentistry</strong><span>Porcelain veneers, professional teeth whitening, bonded restorations, gum contouring and crown lengthening.</span></li>
-      <li><strong>Crowns, bridges &amp; dentures</strong><span>Ceramic crowns and bridges, implant-supported prostheses and full-mouth rehabilitation, designed with digital impressions (CAD/CAM).</span></li>
-      <li><strong>General dentistry &amp; emergencies</strong><span>Check-ups, scaling and cleaning, fillings, root canal treatment, dental pain and emergencies.</span></li>
-      <li><strong>Oral care &amp; cancer</strong><span>Dental assessment and support before, during and after cancer treatment, in coordination with your oncology team. Dr Richard Dahan is the founder and president of the French Society of Dentistry in Oncology (SFDC).</span></li>
-    </ul>
-  </div>
-</section>
-
-<section class="section" id="practice">
-  <div class="wrap split reverse">
-    <div class="split-media reveal"><img src="/assets/img/salle-de-soins-2.jpg" alt="Bright treatment room at Odéon Dentaire" loading="lazy"><span class="frame" aria-hidden="true"></span></div>
-    <div class="split-body">
-      <p class="eyebrow reveal">The practice</p>
-      <h2 class="h2 reveal reveal-d1">A calm setting <em>in the heart of Saint-Germain.</em></h2>
-      <p class="reveal reveal-d2">Steps from the Carrefour de l'Odéon, the practice occupies a Parisian building on boulevard Saint-Germain. Its treatment rooms, filled with natural light and opening onto balconies, are designed for calm, discretion and precision. Established in the 6th arrondissement since 2001.</p>
-      <p class="reveal reveal-d2">International visitors and expatriates are welcome. We provide detailed treatment plans and invoices for reimbursement by your insurance.</p>
+    <div class="infobar reveal">
+      <div><h3>Address</h3><p>{{street}}<br>{{postalCode}} {{city}}</p></div>
+      <div><h3>Metro</h3><p>Odéon (4, 10)<br>Mabillon (10)</p></div>
+      <div><h3>Opening hours</h3><p>Monday – Friday<br>9 am – 7 pm</p></div>
+      <div><h3>Phone</h3><p>{{phoneLinksIntl}}</p></div>
     </div>
   </div>
 </section>
 
-<section class="section bg-paper" id="dentists">
+<section class="section" id="dentists">
   <div class="wrap">
     <div class="section-head">
       <div>
@@ -87,7 +53,27 @@
   </div>
 </section>
 
-<section class="section-tight">
+<section class="section bg-paper" id="treatments">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow reveal">Treatments</p>
+        <h2 class="h2 reveal reveal-d1">Complete dental care,<br><em>one coherent plan.</em></h2>
+      </div>
+      <p class="lede reveal reveal-d2">From routine check-ups to complex surgery, every treatment is designed for a functional, lasting and natural-looking result.</p>
+    </div>
+    <ul class="detail-list reveal">
+      <li><strong>Periodontics</strong><span>Gum disease treatment (gingivitis, periodontitis), deep cleaning and root planing, gum grafts for recessions, regenerative surgery and maintenance.</span></li>
+      <li><strong>Dental implants &amp; oral surgery</strong><span>Single and multiple implants, computer-guided surgery, bone grafts and sinus lifts, full-arch fixed solutions (All-on-4 type), wisdom teeth and complex extractions.</span></li>
+      <li><strong>Cosmetic dentistry</strong><span>Porcelain veneers, professional teeth whitening, bonded restorations, gum contouring and crown lengthening.</span></li>
+      <li><strong>Crowns, bridges &amp; dentures</strong><span>Ceramic crowns and bridges, implant-supported prostheses and full-mouth rehabilitation, designed with digital impressions (CAD/CAM).</span></li>
+      <li><strong>General dentistry &amp; emergencies</strong><span>Check-ups, scaling and cleaning, fillings, root canal treatment, dental pain and emergencies.</span></li>
+      <li><strong>Oral care &amp; cancer</strong><span>Dental assessment and support before, during and after cancer treatment, in coordination with your oncology team. Dr Richard Dahan is the founder and president of the French Society of Dentistry in Oncology (SFDC).</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section-tight" id="practice">
   <div class="wrap access-photos">
     <figure class="reveal"><img src="/assets/img/facade-cabinet.jpg" alt="The building of Odéon Dentaire, 132 boulevard Saint-Germain, Paris" loading="lazy"><figcaption>Our building, 132 boulevard Saint-Germain.</figcaption></figure>
     <figure class="reveal reveal-d1"><img src="/assets/img/passage-du-commerce.jpg" alt="Cour du Commerce-Saint-André, the historic covered passage next to the practice" loading="lazy"><figcaption>The Passage du Commerce (Cour du Commerce-Saint-André), right next to the practice.</figcaption></figure>

@@ -11,6 +11,7 @@ build.mjs               Générateur (src/pages → dist/), sans dépendance
 src/layout.html         En-tête, navigation, bandeau RDV, pied de page
 src/pages/              Une page = un fichier .html (bloc JSON en tête : titre, description…)
 src/assets/             CSS, JS, polices auto-hébergées, images, presse
+src/partials/icons.json Pictogrammes des expertises ({{icon_paro}}…)
 worker/                 Worker Cloudflare : sert le site et enregistre les formulaires dans R2
 wrangler.toml           Configuration du Worker « site » + liaison R2 (FORMS)
 ```
@@ -74,5 +75,4 @@ Méthode recommandée : déléguer le domaine à Cloudflare.
 - Lien de prise de rendez-vous (`rdvUrl`)
 - N° RPPS du Dr Lenny Dahan (mentions légales)
 - Plateau technique : confirmer la liste d'équipements (`src/pages/cabinet.html`)
-- (Facultatif) photos réelles pour remplacer les natures mortes IA des pages d'expertise (`src/assets/img/ai/`, mêmes noms de fichiers)
 - Vidéo d'ambiance de l'accueil : emplacement prévu en commentaire dans `src/pages/index.html`
