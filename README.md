@@ -50,8 +50,9 @@ Réglages du Worker (*Workers & Pages → site → Settings → Build*) :
 
 Le bucket R2 `databasesite` est lié automatiquement (variable `FORMS`, déclarée dans `wrangler.toml`).
 
-(Facultatif) notification e-mail des demandes via [Resend](https://resend.com) : variables `RESEND_API_KEY`, `NOTIFY_EMAIL` (et `NOTIFY_FROM`).
-Sans cela, les demandes sont consultables dans R2 : `forms/contact/AAAA-MM-JJ/…json` et `forms/rendez-vous/…`.
+Chaque demande est archivée dans R2 (`forms/contact/AAAA-MM-JJ/…json`, `forms/rendez-vous/…`) **et** envoyée par e-mail à odeondentaire@gmail.com via Cloudflare Email Routing (liaison `MAILER`, expéditeur `site@odeondentaire.com`).
+
+Prérequis côté Cloudflare : *odeondentaire.com → Email → Email Routing* activé, et `odeondentaire@gmail.com` vérifiée dans *Destination addresses*. Variables facultatives : `MAIL_TO`, `MAIL_FROM`.
 
 ## Nom de domaine (GoDaddy → Cloudflare)
 

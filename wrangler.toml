@@ -12,3 +12,9 @@ not_found_handling = "404-page"
 [[r2_buckets]]
 binding = "FORMS"
 bucket_name = "databasesite"
+
+# Envoi des demandes par e-mail (Cloudflare Email Routing).
+# L'adresse de destination doit être vérifiée dans Email Routing.
+[[send_email]]
+name = "MAILER"
+destination_address = "odeondentaire@gmail.com"
