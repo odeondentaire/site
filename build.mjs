@@ -34,8 +34,6 @@ const vars = {
   hours: config.hours.map(([d, h]) => `<li><span>${d}</span><span>${h}</span></li>`).join(""),
   year: String(new Date().getFullYear()),
 };
-// Pictogrammes partagés : {{icon_paro}}, {{icon_implant}}…
-for (const [k, v] of Object.entries(JSON.parse(readFileSync(join(SRC, "partials", "icons.json"), "utf8")))) vars[`icon_${k}`] = v;
 const flags = { phone: phones.length > 0, email: !!config.email, rdvExternal, rdvInternal: !rdvExternal };
 
 // Données structurées (schema.org) : fiche du cabinet, lue par Google et les moteurs d'IA.
@@ -58,7 +56,7 @@ const jsonLd = JSON.stringify({
       alternateName: ["Odeon Dentaire", "Cabinet dentaire Odéon — Dr Richard Dahan"],
       description: "Cabinet de chirurgie dentaire à Odéon, Paris 6ᵉ : parodontologie, implantologie et chirurgie, dentisterie esthétique, prothèse et réhabilitation, accompagnement bucco-dentaire en cancérologie.",
       url: `${config.siteUrl}/`,
-      image: [`${config.siteUrl}/assets/img/facade-cabinet.jpg`, `${config.siteUrl}/assets/img/passage-du-commerce.jpg`, `${config.siteUrl}/assets/img/salle-de-soins-2.jpg`, `${config.siteUrl}/assets/img/salle-de-soins-3.jpg`],
+      image: [`${config.siteUrl}/assets/img/facade-cabinet.jpg`, `${config.siteUrl}/assets/img/passage-du-commerce.jpg`, `${config.siteUrl}/assets/img/salle-de-soins-1.jpg`, `${config.siteUrl}/assets/img/salle-de-soins-2.jpg`, `${config.siteUrl}/assets/img/salle-de-soins-3.jpg`],
       logo: `${config.siteUrl}/assets/img/favicon.svg`,
       telephone: phones.map((p) => p.tel),
       email: config.email || undefined,
