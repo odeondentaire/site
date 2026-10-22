@@ -14,7 +14,7 @@ English: Odéon Dentaire is a dental practice (dentist) in Paris 6th arrondissem
 
 ## Praticiens
 - [Dr Richard Dahan](https://odeondentaire.com/equipe/#richard-dahan) : docteur en chirurgie dentaire (Université Paris Diderot), post-graduate en implantologie (New York University), exerce depuis 1985, installé à Paris 6ᵉ depuis 2001. Enseignant universitaire. Fondateur et président de la Société française de dentisterie en cancérologie (SFDC), lauréate du Prix Ruban Rose Qualité de Vie 2026.
-- [Dr Lenny Dahan](https://odeondentaire.com/equipe/#lenny-dahan) : docteur en chirurgie dentaire (Université Paris Cité), docteur en pharmacie (Université Paris Descartes), formé à l'AP-HP (Pitié-Salpêtrière, Bretonneau). Chirurgie orale, parodontie, prothèse numérique, dentisterie adhésive.
+- [Dr Lenny Dahan](https://odeondentaire.com/equipe/#lenny-dahan) : docteur en chirurgie dentaire (Université Paris Cité), docteur en pharmacie (Université Paris Descartes), formé au service de médecine bucco-dentaire de l'hôpital Bretonneau (AP-HP). Chirurgie orale, parodontie, prothèse numérique, dentisterie adhésive.
 
 ## Pages utiles
 - [Accueil](https://odeondentaire.com/)

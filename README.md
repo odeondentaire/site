@@ -75,4 +75,5 @@ Méthode recommandée : déléguer le domaine à Cloudflare.
 - N° RPPS du Dr Lenny Dahan (mentions légales)
 - Plateau technique : confirmer la liste d'équipements (`src/pages/cabinet.html`)
 - (Facultatif) photos réelles pour remplacer les natures mortes IA des pages d'expertise (`src/assets/img/ai/`, mêmes noms de fichiers)
+- Photos d'illustration des expertises : Unsplash (`src/assets/img/illustrations/`)
 - Vidéo d'ambiance de l'accueil : emplacement prévu en commentaire dans `src/pages/index.html`
