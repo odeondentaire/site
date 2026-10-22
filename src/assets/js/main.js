@@ -44,6 +44,16 @@
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
       const btn = form.querySelector("button[type=submit]");
+      // Champs obligatoires manquants : on le dit clairement et on montre le champ
+      if (!form.checkValidity()) {
+        status.className = "form-status err";
+        const consent = form.querySelector("input[name=consentement]");
+        status.textContent = consent && !consent.checked
+          ? "Merci de cocher la case d'accord pour l'utilisation de vos données."
+          : "Merci de remplir les champs obligatoires (nom, prénom, e-mail valide" + (form.dataset.form === "rendez-vous" ? ", téléphone" : ", message") + ").";
+        form.reportValidity();
+        return;
+      }
       status.className = "form-status";
       status.textContent = "Envoi en cours…";
       btn.disabled = true;
