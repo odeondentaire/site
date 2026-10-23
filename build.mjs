@@ -16,10 +16,44 @@ const layouts = {
 // Versionnage des CSS/JS : une nouvelle URL à chaque modification (pas de vieux fichier en cache)
 const ver = (f) => createHash("sha1").update(readFileSync(join(SRC, f))).digest("hex").slice(0, 10);
 const assetVersions = { css: ver("assets/css/style.css"), js: ver("assets/js/main.js") };
+// La feuille de style est intégrée dans chaque page (aucune requête bloquante au chargement)
+const inlineCss = readFileSync(join(SRC, "assets/css/style.css"), "utf8")
+  .replace(/url\("\.\.\/fonts\//g, 'url("/assets/fonts/')
+  .replace(/\/\*[\s\S]*?\*\//g, "")
+  .replace(/\s*\n\s*/g, "\n");
 for (const k of Object.keys(layouts)) {
   layouts[k] = layouts[k]
-    .replace('/assets/css/style.css"', `/assets/css/style.css?v=${assetVersions.css}"`)
+    .replace(/<link rel="stylesheet" href="\/assets\/css\/style\.css"[^>]*>/, () => `<style>${inlineCss}</style>`)
     .replace('/assets/js/main.js"', `/assets/js/main.js?v=${assetVersions.js}"`);
+}
+
+// Images : variantes WebP générées à côté des JPEG (nom-480.webp, nom-800.webp…)
+function webpSet(src) {
+  const base = src.replace(/\.jpe?g$/, "");
+  const dir = join(SRC, dirname(base).replace(/^\//, ""));
+  const name = base.split("/").pop();
+  let files = [];
+  try { files = readdirSync(dir); } catch { return null; }
+  const widths = files
+    .map((f) => f.match(new RegExp(`^${name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}-(\\d+)\\.webp$`)))
+    .filter(Boolean).map((m) => +m[1]).sort((a, b) => a - b);
+  if (!widths.length) return null;
+  const fallback = widths.filter((w) => w <= 800).pop() || widths[0];
+  return { src: `${base}-${fallback}.webp`, srcset: widths.map((w) => `${base}-${w}.webp ${w}w`).join(", ") };
+}
+function responsiveImages(html) {
+  return html.replace(/<img\b([^>]*?)\ssrc="(\/assets\/(?:img|press)\/[^"]+\.jpe?g)"([^>]*)>/g, (m, before, src, after, offset) => {
+    const set = webpSet(src);
+    if (!set) return m;
+    const ctx = html.slice(Math.max(0, offset - 160), offset);
+    const attrs = before + after;
+    let sizes = "(max-width: 860px) 100vw, 50vw";
+    if (/fetchpriority="high"/.test(attrs) || /hero-media|page-hero-img/.test(ctx)) sizes = "100vw";
+    else if (/pillar-img|news-img/.test(ctx)) sizes = "(max-width: 560px) 100vw, (max-width: 1000px) 50vw, 25vw";
+    else if (/press-page/.test(attrs)) sizes = "(max-width: 860px) 55vw, 25vw";
+    else if (/team-img|press-cover/.test(ctx)) sizes = "(max-width: 760px) 100vw, 40vw";
+    return `<img${before} src="${set.src}" srcset="${set.srcset}" sizes="${sizes}"${after}>`;
+  });
 }
 
 const rdvExternal = Boolean(config.rdvUrl);
@@ -145,7 +179,7 @@ for (const file of walk(join(SRC, "pages"))) {
     ...Object.fromEntries(["expertises", "cabinet", "equipe", "actualites", "contact"].map((k) => [`nav_${k}`, nav === k ? 'aria-current="page"' : ""])),
   });
   // Liens internes vers l'URL finale (avec « / ») : pas de redirection pour Google
-  const linked = html.replace(/href="(\/(?!assets\/|api\/)[^"#?.]*[^"#?./])(#[^"]*)?"/g, (m, p1, hash = "") => `href="${p1}/${hash}"`);
+  const linked = responsiveImages(html).replace(/href="(\/(?!assets\/|api\/)[^"#?.]*[^"#?./])(#[^"]*)?"/g, (m, p1, hash = "") => `href="${p1}/${hash}"`);
   mkdirSync(dirname(out), { recursive: true });
   writeFileSync(out, linked);
   if (!meta.noindex) urls.push(path);

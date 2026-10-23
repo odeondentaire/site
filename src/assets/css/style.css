@@ -13,23 +13,26 @@
 @font-face { font-family: "Jost"; src: url("../fonts/jost-latin-500-normal.woff2") format("woff2"); font-weight: 500; font-display: swap; }
 @font-face { font-family: "Jost"; src: url("../fonts/jost-latin-600-normal.woff2") format("woff2"); font-weight: 600; font-display: swap; }
 
+@font-face { font-family: "Cormorant Fallback"; src: local("Georgia"), local("Times New Roman"); size-adjust: 88%; ascent-override: 92%; descent-override: 29%; }
+@font-face { font-family: "Jost Fallback"; src: local("Arial"), local("Helvetica"); size-adjust: 97%; ascent-override: 105%; descent-override: 37%; }
+
 :root {
   --chalk: #F2F5FA;
   --paper: #E3EAF4;
   --stone: #D6E0EE;
-  --taupe: #6A7586;
+  --taupe: #525C6C;
   --taupe-dark: #3E4A5C;
   --ink: #0B1730;
   --navy: #16305A;
   --navy-deep: #0C1E3C;
   --navy-soft: #C9D4E6;
-  --brass: #A8874F;
+  --brass: #7A5C2C;
   --brass-light: #D2B784;
   --line: rgba(14, 26, 43, .12);
   --line-light: rgba(255, 255, 255, .18);
 
-  --serif: "Cormorant", "Cormorant Garamond", Georgia, serif;
-  --sans: "Jost", "Futura", "Century Gothic", system-ui, sans-serif;
+  --serif: "Cormorant", "Cormorant Fallback", Georgia, serif;
+  --sans: "Jost", "Jost Fallback", Arial, sans-serif;
 
   --wrap: 1240px;
   --gutter: clamp(16px, 4vw, 48px);
@@ -413,7 +416,7 @@ body.has-hero .site-header:not(.is-scrolled) .btn-solid:hover { background: var(
 .contact-grid { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(40px, 7vw, 120px); }
 .contact-block { padding: 26px 0; border-bottom: 1px solid var(--line); }
 .contact-block:first-child { border-top: 1px solid var(--line); }
-.contact-block h3 { font-size: 11.5px; font-family: var(--sans); font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--taupe); margin-bottom: 10px; }
+.contact-block h3, .contact-block .cb-title { font-size: 13px; font-family: var(--sans); font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--taupe); margin-bottom: 10px; }
 .contact-block p { margin: 0; font-family: var(--serif); font-size: 23px; line-height: 1.4; }
 .contact-block a:hover { color: var(--navy); }
 .map { margin-top: 40px; aspect-ratio: 16 / 10; background: var(--stone); position: relative; overflow: hidden; }
@@ -601,3 +604,33 @@ body.has-hero .site-header:not(.is-scrolled) .btn-solid { background: #fff; colo
 /* Couleurs conservées à l'impression / export PDF */
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 @media print { .rdv-sticky, .hero-scroll { display: none !important; } .reveal { opacity: 1 !important; transform: none !important; } .site-header { position: absolute; } }
+
+
+/* ==========================================================================
+   Audit UX / accessibilité
+   ========================================================================== */
+/* Focus clavier bien visible, sur fond clair comme sur fond bleu marine */
+:focus-visible { outline: 2px solid var(--navy-deep); outline-offset: 3px; box-shadow: 0 0 0 5px #fff; border-radius: 2px; }
+.bg-navy :focus-visible, .site-header :focus-visible, .site-footer :focus-visible, .rdv-band :focus-visible { outline-color: #fff; box-shadow: 0 0 0 5px var(--navy-deep); }
+
+/* Textes trop petits */
+.eyebrow { font-size: 13px; }
+.link-arrow, .pillar .link-arrow, .card .link-arrow { font-size: 13px; }
+.field label { font-size: 13px; letter-spacing: .12em; }
+.breadcrumb { font-size: 13px; }
+.team-card .role, .bio-body .role, .press-meta { font-size: 13px; }
+.hero-badges li small { font-size: 14px; }
+.btn { font-size: 14px; }
+
+/* Zones cliquables d'au moins 44 px (mobile) */
+a[href^="tel:"]:not(.btn), a[href^="mailto:"]:not(.btn) { display: inline-block; padding: 10px 0; }
+.footer-links li { padding: 0; }
+.footer-links a, .footer-bottom a { display: inline-block; padding: 11px 0; }
+.breadcrumb a { display: inline-block; padding: 12px 0; }
+.link-arrow { min-height: 44px; align-items: flex-end; }
+.brand { min-height: 44px; }
+@media (max-width: 1080px) { .sub li a { padding: 11px 0; } }
+.consent { align-items: center; }
+.consent input { width: 22px; height: 22px; margin: 0; flex: none; cursor: pointer; }
+.consent a { display: inline; padding: 0; }
+a, button, summary, label.consent, select { cursor: pointer; }

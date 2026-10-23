@@ -64,6 +64,16 @@ Méthode recommandée : déléguer le domaine à Cloudflare.
 
 ⚠️ Si des e-mails utilisent déjà ce domaine (MX GoDaddy / Microsoft 365), recopiez les enregistrements MX/TXT dans Cloudflare avant de changer les serveurs de noms.
 
+## Images
+
+Chaque JPEG de `src/assets/img/` et `src/assets/press/` a ses variantes WebP (`nom-480.webp`, `nom-800.webp`, `nom-1200.webp`, `nom-1800.webp`) ; le build ajoute automatiquement `srcset`/`sizes`. Pour une nouvelle photo, générer les variantes :
+
+```bash
+python3 -c "from PIL import Image;import sys;p=sys.argv[1];im=Image.open(p).convert('RGB');[im.resize((w,round(im.height*w/im.width))).save(p.rsplit('.',1)[0]+f'-{w}.webp',quality=74) for w in (480,800,1200,1800) if w<=im.width]" chemin/photo.jpg
+```
+
+La feuille de style est intégrée dans chaque page au build (pas de fichier CSS bloquant).
+
 ## Référencement (SEO et assistants IA)
 
 - Données structurées schema.org (`Dentist`) générées par `build.mjs` à partir de `site.config.json`
@@ -75,6 +85,5 @@ Méthode recommandée : déléguer le domaine à Cloudflare.
 - Lien de prise de rendez-vous (`rdvUrl`)
 - N° RPPS du Dr Lenny Dahan (mentions légales)
 - Plateau technique : confirmer la liste d'équipements (`src/pages/cabinet.html`)
-- (Facultatif) photos réelles pour remplacer les natures mortes IA des pages d'expertise (`src/assets/img/ai/`, mêmes noms de fichiers)
 - Photos d'illustration des expertises : Unsplash (`src/assets/img/illustrations/`)
 - Vidéo d'ambiance de l'accueil : emplacement prévu en commentaire dans `src/pages/index.html`
