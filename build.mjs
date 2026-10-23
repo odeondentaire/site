@@ -144,8 +144,10 @@ for (const file of walk(join(SRC, "pages"))) {
     content: render(body),
     ...Object.fromEntries(["expertises", "cabinet", "equipe", "actualites", "contact"].map((k) => [`nav_${k}`, nav === k ? 'aria-current="page"' : ""])),
   });
+  // Liens internes vers l'URL finale (avec « / ») : pas de redirection pour Google
+  const linked = html.replace(/href="(\/(?!assets\/|api\/)[^"#?.]*[^"#?./])(#[^"]*)?"/g, (m, p1, hash = "") => `href="${p1}/${hash}"`);
   mkdirSync(dirname(out), { recursive: true });
-  writeFileSync(out, html);
+  writeFileSync(out, linked);
   if (!meta.noindex) urls.push(path);
 }
 
