@@ -2,6 +2,7 @@
 // src/pages/**/*.html  →  dist/**/index.html (URLs propres), habillées par src/layout.html.
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, statSync, cpSync, rmSync } from "node:fs";
 import { join, dirname, relative } from "node:path";
+import { createHash } from "node:crypto";
 
 const ROOT = dirname(new URL(import.meta.url).pathname);
 const SRC = join(ROOT, "src");
@@ -11,6 +12,15 @@ const layouts = {
   fr: readFileSync(join(SRC, "layout.html"), "utf8"),
   en: readFileSync(join(SRC, "layout-en.html"), "utf8"),
 };
+
+// Versionnage des CSS/JS : une nouvelle URL à chaque modification (pas de vieux fichier en cache)
+const ver = (f) => createHash("sha1").update(readFileSync(join(SRC, f))).digest("hex").slice(0, 10);
+const assetVersions = { css: ver("assets/css/style.css"), js: ver("assets/js/main.js") };
+for (const k of Object.keys(layouts)) {
+  layouts[k] = layouts[k]
+    .replace('/assets/css/style.css"', `/assets/css/style.css?v=${assetVersions.css}"`)
+    .replace('/assets/js/main.js"', `/assets/js/main.js?v=${assetVersions.js}"`);
+}
 
 const rdvExternal = Boolean(config.rdvUrl);
 const a = config.address;

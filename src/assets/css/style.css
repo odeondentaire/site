@@ -590,3 +590,14 @@ body.has-hero .site-header:not(.is-scrolled) .btn-solid { background: #fff; colo
 @media (max-width: 760px) {
   .rdv-sticky { left: 0; right: 0; bottom: 0; border-radius: 0; padding: 18px 16px calc(18px + env(safe-area-inset-bottom)); font-weight: 600; transform: none !important; box-shadow: 0 -6px 24px rgba(12,30,60,.18); }
 }
+
+/* Titre d'accueil plus long : taille ajustée */
+.hero-light .display { font-size: clamp(36px, 4.3vw, 62px); max-width: 17ch; line-height: 1.08; }
+.hero-light .hero-content { padding-top: clamp(40px, 6vw, 84px); padding-bottom: clamp(40px, 6vw, 84px); }
+.hero-light .lede { font-size: clamp(17px, 1.3vw, 20px); }
+.hero-light .lede { max-width: 44ch; }
+/* Badges discrets */
+.hero-badges svg { width: 40px !important; height: 40px !important; padding: 10px; }
+/* Couleurs conservées à l'impression / export PDF */
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+@media print { .rdv-sticky, .hero-scroll { display: none !important; } .reveal { opacity: 1 !important; transform: none !important; } .site-header { position: absolute; } }
