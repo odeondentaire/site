@@ -543,3 +543,50 @@ body.has-hero .site-header:not(.is-scrolled) .btn-solid { background: #fff; colo
 .logo-band { background: #fff; padding: clamp(40px, 6vw, 72px) var(--gutter); display: flex; justify-content: center; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .logo-band img { width: min(520px, 100%); height: auto; }
 .news-card .logo-panel img { width: 80%; height: auto; object-fit: contain; }
+
+/* ==========================================================================
+   Accueil orienté prise de rendez-vous
+   ========================================================================== */
+.hero-light { min-height: auto; align-items: center; color: var(--ink); padding-top: var(--header-h); }
+.hero-light .hero-media img { animation: none; object-position: 70% center; }
+.hero-light .hero-media::after {
+  background: linear-gradient(90deg, rgba(242,245,250,.97) 0%, rgba(242,245,250,.93) 38%, rgba(242,245,250,.55) 66%, rgba(242,245,250,.2) 100%) !important;
+}
+.hero-light .hero-content { padding-top: clamp(56px, 8vw, 110px); padding-bottom: clamp(56px, 8vw, 110px); max-width: var(--wrap); }
+.hero-light .eyebrow { color: var(--brass); }
+.hero-light .display { color: var(--navy-deep); font-size: clamp(44px, 6.2vw, 92px); max-width: 12ch; text-shadow: none; }
+.hero-light .display em { color: var(--navy); }
+.hero-light .lede { color: var(--taupe-dark); text-shadow: none; max-width: 34ch; font-size: clamp(18px, 1.5vw, 22px); margin-top: 22px; }
+
+.hero-cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
+.btn svg { width: 20px; height: 20px; flex: none; }
+.btn-cta {
+  background: var(--navy); color: #fff; border-color: var(--navy);
+  padding: 22px 38px; font-size: 15px; letter-spacing: .08em; border-radius: 8px;
+  box-shadow: 0 14px 34px rgba(22,48,90,.32);
+  transition: transform .25s var(--ease), box-shadow .25s var(--ease), background .25s var(--ease);
+}
+.btn-cta:hover { background: var(--navy-deep); transform: translateY(-2px); box-shadow: 0 18px 40px rgba(22,48,90,.38); }
+.btn-call { background: #fff; color: var(--navy-deep); border-color: rgba(22,48,90,.25); padding: 22px 30px; font-size: 15px; letter-spacing: .06em; border-radius: 8px; }
+.btn-call:hover { border-color: var(--navy); }
+.hero-note { margin: 14px 0 0; font-size: 14px; color: var(--taupe); }
+.hero-badges { display: flex; flex-wrap: wrap; gap: 14px 28px; margin-top: 38px; }
+.hero-badges li { display: flex; align-items: center; gap: 12px; font-size: 14.5px; font-weight: 500; color: var(--ink); line-height: 1.3; }
+.hero-badges li small { font-weight: 400; color: var(--taupe); font-size: 13px; }
+.hero-badges svg { width: 44px; height: 44px; padding: 11px; border-radius: 50%; background: #fff; color: var(--navy); box-shadow: 0 4px 14px rgba(12,30,60,.08); flex: none; }
+@media (max-width: 760px) {
+  .hero-light .hero-media::after { background: linear-gradient(180deg, rgba(242,245,250,.95) 0%, rgba(242,245,250,.9) 60%, rgba(242,245,250,.75) 100%) !important; }
+  .hero-light .hero-content { padding-top: 40px; padding-bottom: 48px; }
+  .hero-cta .btn { width: 100%; }
+  .hero-badges { flex-direction: column; gap: 12px; }
+}
+
+/* Boutons rendez-vous : coins arrondis partout */
+.btn[data-rdv], .nav-rdv { border-radius: 8px; }
+.nav-rdv { gap: 8px; }
+.nav-rdv svg { width: 17px; height: 17px; }
+
+/* Bouton RDV mobile toujours visible */
+@media (max-width: 760px) {
+  .rdv-sticky { left: 0; right: 0; bottom: 0; border-radius: 0; padding: 18px 16px calc(18px + env(safe-area-inset-bottom)); font-weight: 600; transform: none !important; box-shadow: 0 -6px 24px rgba(12,30,60,.18); }
+}
