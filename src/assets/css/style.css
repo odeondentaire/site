@@ -744,7 +744,7 @@ a, button, summary, label.consent, select { cursor: pointer; }
 /* Portrait noir & blanc + citation */
 .portrait-quote { display: grid; grid-template-columns: 1fr 1fr; background: var(--chalk); padding: 14px; gap: 14px; }
 .portrait-quote-media { border-radius: 24px; overflow: hidden; min-height: 520px; }
-.portrait-quote-media img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; filter: grayscale(1) contrast(1.05); }
+.portrait-quote-media img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
 .portrait-quote-body { align-self: center; padding: clamp(32px, 6vw, 96px) clamp(24px, 5vw, 80px); }
 .portrait-quote blockquote { margin: 0 0 28px; font-family: var(--serif); font-weight: 500; font-style: italic; font-size: clamp(28px, 2.8vw, 42px); line-height: 1.25; color: var(--navy-deep); }
 .portrait-quote-sign { font-weight: 600; color: var(--ink); margin-bottom: 8px; }
@@ -756,9 +756,7 @@ a, button, summary, label.consent, select { cursor: pointer; }
 .press-strip ul { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px 48px; margin-top: 8px; }
 .press-strip li { font-family: var(--serif); font-size: clamp(19px, 1.7vw, 24px); font-weight: 600; color: var(--taupe); letter-spacing: .01em; }
 
-/* Portraits des praticiens : noir et blanc, couleur au survol */
-.team-card .team-img img { filter: grayscale(1); transition: filter .6s var(--ease), transform 1.2s var(--ease); }
-.team-card:hover .team-img img, .team-card:focus-visible .team-img img { filter: none; }
+
 
 @media (max-width: 1000px) {
   .steps-visual { grid-template-columns: 1fr 1fr; }
