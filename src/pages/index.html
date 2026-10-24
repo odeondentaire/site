@@ -1,7 +1,7 @@
 ---
 {"fullTitle": "Dentiste Odéon, Paris 6ᵉ — Odéon Dentaire | Dr Richard & Dr Lenny Dahan", "description": "Odéon Dentaire, cabinet dentaire au 132 boulevard Saint-Germain, Paris 6ᵉ (métro Odéon). Dr Richard Dahan et Dr Lenny Dahan : parodontologie, implants, esthétique, prothèse, soins et urgences. Secteur 1, Carte Vitale. Lun–ven 9 h–19 h.", "bodyClass": "home", "alternate": "/en/"}
 ---
-<section class="hero-frame">
+<section class="hero-frame hero-dark">
   <div class="hero-card">
     <div class="hero-card-media">
       <img src="/assets/img/salle-de-soins-2.jpg" alt="Salle de soins du cabinet Odéon Dentaire" fetchpriority="high">
@@ -16,11 +16,21 @@
       </div>
       <p class="hero-note">Nouveaux patients bienvenus · Réponse rapide du secrétariat · Français et anglais</p>
     </div>
-    <dl class="hero-strip">
-      <div><dt>Accès</dt><dd>Métro Odéon · 132 bd Saint-Germain</dd></div>
-      <div><dt>Horaires</dt><dd>Lundi – vendredi · 9 h – 19 h</dd></div>
-      <div><dt>Prise en charge</dt><dd>Secteur 1 · Carte Vitale acceptée</dd></div>
+    <dl class="hero-figures">
+      <div><dt>40<span>+</span></dt><dd>années d'exercice</dd></div>
+      <div><dt>2001</dt><dd>boulevard Saint-Germain</dd></div>
+      <div><dt>NYU</dt><dd>post-graduate en implantologie</dd></div>
+      <div><dt>2026</dt><dd>Prix Ruban Rose · SFDC</dd></div>
     </dl>
+  </div>
+</section>
+
+<section class="info-bar" aria-label="Infos pratiques">
+  <div class="wrap info-bar-inner">
+    <p><span>Adresse</span>{{street}}, {{postalCode}} {{city}}</p>
+    <p><span>Accès</span>Métro Odéon (4, 10) · Mabillon (10)</p>
+    <p><span>Horaires</span>Lundi – vendredi · 9 h – 19 h</p>
+    <p><span>Téléphone</span><a href="tel:{{phone}}">{{phoneDisplay}}</a></p>
   </div>
 </section>
 
@@ -137,11 +147,11 @@
       </div>
       <p class="lede reveal reveal-d2">Chaque étape est expliquée avant de commencer.</p>
     </div>
-    <div class="steps">
-      <div class="step reveal"><h3>Consultation &amp; bilan</h3><p>Examen complet et imagerie si besoin.</p></div>
-      <div class="step reveal reveal-d1"><h3>Plan de traitement</h3><p>Options expliquées, devis détaillé.</p></div>
-      <div class="step reveal reveal-d2"><h3>Les soins</h3><p>Techniques mini-invasives, confort et sécurité.</p></div>
-      <div class="step reveal reveal-d3"><h3>Suivi &amp; maintenance</h3><p>Contrôles réguliers pour durer.</p></div>
+    <div class="steps-visual">
+      <article class="step-card reveal"><img src="/assets/img/salle-de-soins-2.jpg" alt="Salle de consultation du cabinet" loading="lazy"><p class="step-num">Étape 01</p><h3>Consultation &amp; bilan</h3><p>Examen complet et imagerie si besoin.</p></article>
+      <article class="step-card reveal reveal-d1"><img src="/assets/img/illustrations/imagerie-3d.jpg" alt="Analyse d'une imagerie dentaire 3D" loading="lazy"><p class="step-num">Étape 02</p><h3>Plan de traitement</h3><p>Options expliquées, devis détaillé.</p></article>
+      <article class="step-card reveal reveal-d2"><img src="/assets/img/illustrations/examen.jpg" alt="Instruments d'examen dentaire" loading="lazy"><p class="step-num">Étape 03</p><h3>Les soins</h3><p>Techniques mini-invasives, confort et sécurité.</p></article>
+      <article class="step-card reveal reveal-d3"><img src="/assets/img/salle-de-soins-3.jpg" alt="Poste de soins avec radiographie numérique" loading="lazy"><p class="step-num">Étape 04</p><h3>Suivi &amp; maintenance</h3><p>Contrôles réguliers pour durer.</p></article>
     </div>
   </div>
 </section>
@@ -164,18 +174,25 @@
   </div>
 </section>
 
-<section class="section">
-  <div class="wrap press-feature">
-    <div class="press-cover reveal">
-      <img src="/assets/press/oncd-232-couverture.jpg" alt="Couverture de #ONCD La Lettre n°232, septembre-octobre 2026" loading="lazy">
-      <img class="press-page" src="/assets/press/tribune-oncd-232.jpg" alt="Tribune du Dr Richard Dahan dans #ONCD La Lettre" loading="lazy">
-    </div>
-    <div>
-      <p class="eyebrow reveal">Presse</p>
-      <p class="press-meta reveal">#ONCD La Lettre · N° 232 · Sept.–Oct. 2026</p>
-      <h2 class="h2 reveal reveal-d1">Prix Ruban Rose : <em>le « Ruban du Sourire » attribué à la SFDC</em></h2>
-      <p class="press-quote reveal reveal-d2">« Préserver la bouche et les dents, c'est aussi prévenir la douleur, maintenir la nutrition, restaurer la confiance. »</p>
-      <div class="btn-row reveal reveal-d3"><a class="btn btn-ghost" href="/actualites/prix-ruban-rose-ruban-du-sourire">Lire la tribune</a></div>
-    </div>
+<section class="portrait-quote">
+  <div class="portrait-quote-media"><img src="/assets/img/dr-richard-dahan.jpg" alt="Dr Richard Dahan" loading="lazy"></div>
+  <div class="portrait-quote-body reveal">
+    <p class="eyebrow">Tribune · #ONCD La Lettre, 2026</p>
+    <blockquote>« Préserver la bouche et les dents, c'est aussi prévenir la douleur, maintenir la nutrition, restaurer la confiance. »</blockquote>
+    <p class="portrait-quote-sign">Dr Richard Dahan<br><span>Président de la Société française de dentisterie en cancérologie</span></p>
+    <div class="btn-row"><a class="link-arrow" href="/actualites/prix-ruban-rose-ruban-du-sourire">Lire la tribune</a><a class="link-arrow" href="/equipe#richard-dahan">Son parcours</a></div>
+  </div>
+</section>
+
+<section class="press-strip" aria-label="Publications et presse">
+  <div class="wrap">
+    <p class="eyebrow center">Publications &amp; presse</p>
+    <ul>
+      <li>#ONCD La Lettre</li>
+      <li>The Journal of Adhesive Dentistry</li>
+      <li>AO News</li>
+      <li>Société française de dentisterie en cancérologie</li>
+      <li>Patients en Réseau</li>
+    </ul>
   </div>
 </section>
