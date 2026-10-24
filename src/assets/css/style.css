@@ -295,6 +295,8 @@ body.has-hero .site-header:not(.is-scrolled) .btn-solid:hover { background: var(
 
 .checklist li { position: relative; padding: 10px 0 10px 34px; border-bottom: 1px solid var(--line); color: var(--taupe-dark); }
 .checklist li::before { content: ""; position: absolute; left: 0; top: 22px; width: 18px; height: 1px; background: var(--brass); }
+.bg-navy .checklist li { color: rgba(255,255,255,.88); border-bottom-color: rgba(255,255,255,.16); }
+.bg-navy .checklist li::before { background: var(--brass-light); }
 
 /* Praticiens (aperçu) */
 .team-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(28px, 4vw, 64px); }

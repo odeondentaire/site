@@ -134,6 +134,24 @@ function render(tpl, extra = {}) {
   return tpl.replace(/\{\{(\w+)\}\}/g, (m, k) => (k in v ? v[k] : m));
 }
 
+// Données structurées propres à chaque page : fil d'Ariane et questions fréquentes
+const strip = (h) => h.replace(/<[^>]+>/g, "").replace(/&amp;/g, "&").replace(/\s+/g, " ").trim();
+function pageJsonLd(body, path, meta) {
+  const graph = [];
+  const bc = body.match(/<p class="breadcrumb">([\s\S]*?)<\/p>/);
+  if (bc) {
+    const items = [...bc[1].matchAll(/<a href="([^"]+)">([\s\S]*?)<\/a>/g)].map(([, href, label]) => ({ url: config.siteUrl + href.replace(/([^/])$/, "$1/"), name: strip(label) }));
+    items.push({ url: config.siteUrl + path, name: strip(bc[1].split("</span>").pop()) });
+    graph.push({ "@type": "BreadcrumbList", itemListElement: items.map((it, i) => ({ "@type": "ListItem", position: i + 1, name: it.name, item: it.url })) });
+  }
+  const faq = [...body.matchAll(/<details><summary>([\s\S]*?)<\/summary><div>([\s\S]*?)<\/div><\/details>/g)];
+  if (faq.length) {
+    graph.push({ "@type": "FAQPage", inLanguage: meta.lang === "en" ? "en" : "fr-FR", mainEntity: faq.map(([, q, r]) => ({ "@type": "Question", name: strip(render(q)), acceptedAnswer: { "@type": "Answer", text: strip(render(r)) } })) });
+  }
+  if (!graph.length) return "";
+  return `<script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@graph": graph }).replace(/</g, "\\u003c")}</script>`;
+}
+
 function walk(dir) {
   return readdirSync(dir).flatMap((f) => {
     const p = join(dir, f);
@@ -176,6 +194,7 @@ for (const file of walk(join(SRC, "pages"))) {
     bodyClass: meta.bodyClass || "",
     ogImage: config.siteUrl + (meta.image || "/assets/img/facade-cabinet.jpg"),
     content: render(body),
+    pageLd: pageJsonLd(body, path, meta),
     ...Object.fromEntries(["expertises", "cabinet", "equipe", "actualites", "contact"].map((k) => [`nav_${k}`, nav === k ? 'aria-current="page"' : ""])),
   });
   // Liens internes vers l'URL finale (avec « / ») : pas de redirection pour Google
