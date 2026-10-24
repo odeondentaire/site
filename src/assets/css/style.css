@@ -634,3 +634,63 @@ a[href^="tel:"]:not(.btn), a[href^="mailto:"]:not(.btn) { display: inline-block;
 .consent input { width: 22px; height: 22px; margin: 0; flex: none; cursor: pointer; }
 .consent a { display: inline; padding: 0; }
 a, button, summary, label.consent, select { cursor: pointer; }
+
+/* ==========================================================================
+   Accueil : hero encadré (image derrière le texte, infos ancrées en bas)
+   ========================================================================== */
+.hero-frame { padding: calc(var(--header-h) + 14px) 14px 0; background: var(--chalk); }
+.hero-card {
+  position: relative; overflow: hidden; border-radius: 28px; isolation: isolate;
+  min-height: min(calc(100svh - var(--header-h) - 28px), 860px);
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.hero-card-media { position: absolute; inset: 0; z-index: -1; }
+.hero-card-media img { width: 100%; height: 100%; object-fit: cover; object-position: 70% center; }
+.hero-card-media::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(90deg, rgba(242,245,250,.97) 0%, rgba(242,245,250,.92) 36%, rgba(242,245,250,.5) 64%, rgba(242,245,250,.12) 100%);
+}
+.hero-card-body { padding: clamp(36px, 5.5vw, 80px) clamp(24px, 5.5vw, 80px) 32px; max-width: 760px; }
+.hero-card .eyebrow { color: var(--brass); }
+.hero-card .display { color: var(--navy-deep); font-size: clamp(36px, 4.3vw, 62px); line-height: 1.08; max-width: 17ch; }
+.hero-card .display em { color: var(--navy); }
+.hero-card .lede { color: var(--taupe-dark); font-size: clamp(17px, 1.3vw, 20px); max-width: 46ch; margin-top: 22px; }
+.hero-card .hero-cta { margin-top: 32px; }
+.hero-card .btn-cta { border-radius: 14px; padding: 10px 10px 10px 28px; gap: 18px; min-height: 64px; }
+.btn-chip { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 10px; background: #fff; color: var(--navy-deep); transition: transform .25s var(--ease); }
+.btn-cta:hover .btn-chip { transform: translateX(3px); }
+.hero-card .btn-call { border-radius: 14px; min-height: 64px; background: rgba(255,255,255,.85); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+
+/* Bandeau d'infos ancré en bas du cadre, colonnes séparées par des filets */
+.hero-strip {
+  margin: 0 clamp(14px, 2vw, 24px) clamp(14px, 2vw, 24px);
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  background: rgba(255,255,255,.82); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,.9); border-radius: 18px; box-shadow: 0 10px 30px rgba(12,30,60,.08);
+}
+.hero-strip > div { padding: 18px 24px; }
+.hero-strip > div + div { border-left: 1px solid var(--line); }
+.hero-strip dt { font-size: 12.5px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--brass); margin-bottom: 4px; }
+.hero-strip dd { margin: 0; font-size: 15.5px; font-weight: 500; color: var(--ink); }
+
+/* Menu regroupé dans une barre arrondie (ordinateur) */
+@media (min-width: 1081px) {
+  .nav-list { gap: 2px; padding: 5px; border-radius: 999px; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); }
+  .nav-list > li > a { display: inline-block; padding: 9px 16px; border-radius: 999px; transition: background .25s var(--ease); }
+  .nav-list > li > a::after { display: none; }
+  .nav-list > li > a:hover, .nav-list > li > a[aria-current] { background: rgba(255,255,255,.12); }
+  .sub { top: calc(100% + 8px); border-radius: 14px; }
+  .nav-rdv { border-radius: 999px !important; padding: 13px 22px; }
+}
+
+@media (max-width: 860px) {
+  .hero-frame { padding: calc(var(--header-h) + 8px) 8px 0; }
+  .hero-card { border-radius: 20px; min-height: 0; }
+  .hero-card-media::after { background: linear-gradient(180deg, rgba(242,245,250,.95) 0%, rgba(242,245,250,.9) 65%, rgba(242,245,250,.8) 100%); }
+  .hero-card-body { padding: 32px 20px 24px; }
+  .hero-cta .btn { width: 100%; }
+  .hero-card .btn-cta { justify-content: space-between; }
+  .hero-strip { grid-template-columns: 1fr; margin: 0 10px 10px; }
+  .hero-strip > div + div { border-left: 0; border-top: 1px solid var(--line); }
+  .hero-strip > div { padding: 14px 18px; }
+}
