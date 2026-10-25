@@ -778,3 +778,40 @@ a, button, summary, label.consent, select { cursor: pointer; }
 .affiliations { display: flex; flex-wrap: wrap; align-items: center; gap: 20px 40px; margin-top: 32px; padding: 24px 28px; background: #fff; border: 1px solid var(--line); }
 .affiliations img { height: 52px; width: auto; }
 .affiliations img[src*="sfdc"] { height: 64px; }
+
+/* ==========================================================================
+   Accueil : lumière animée (CSS pur, désactivée si « réduire les animations »)
+   ========================================================================== */
+.hero-aurora { position: absolute; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; mix-blend-mode: screen; opacity: .7; }
+.hero-card-media { z-index: -2; }
+.hero-aurora span { position: absolute; border-radius: 50%; will-change: transform; }
+.hero-aurora span:nth-child(1) { width: 70vmax; height: 70vmax; left: -25vmax; top: -30vmax; background: radial-gradient(closest-side, rgba(64,110,190,.55), rgba(64,110,190,0)); animation: aurora-a 22s ease-in-out infinite alternate; }
+.hero-aurora span:nth-child(2) { width: 55vmax; height: 55vmax; left: 10vmax; bottom: -35vmax; background: radial-gradient(closest-side, rgba(210,183,132,.38), rgba(210,183,132,0)); animation: aurora-b 26s ease-in-out infinite alternate; }
+.hero-aurora span:nth-child(3) { width: 45vmax; height: 45vmax; right: -15vmax; top: -10vmax; background: radial-gradient(closest-side, rgba(40,80,160,.4), rgba(40,80,160,0)); animation: aurora-c 30s ease-in-out infinite alternate; }
+@keyframes aurora-a { to { transform: translate3d(18vmax, 10vmax, 0) scale(1.15); } }
+@keyframes aurora-b { to { transform: translate3d(22vmax, -12vmax, 0) scale(.9); } }
+@keyframes aurora-c { to { transform: translate3d(-16vmax, 14vmax, 0) scale(1.1); } }
+
+/* Badge « Ouvert maintenant » */
+.open-status { display: inline-flex; align-items: center; gap: 10px; margin: 22px 0 0; font-size: 14px; font-weight: 500; letter-spacing: .02em; color: var(--taupe-dark); }
+.open-status::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #B8BFCB; flex: none; }
+.open-status.is-open::before { background: #3DBE7A; box-shadow: 0 0 0 0 rgba(61,190,122,.55); animation: open-pulse 2.4s ease-out infinite; }
+@keyframes open-pulse { 70% { box-shadow: 0 0 0 9px rgba(61,190,122,0); } 100% { box-shadow: 0 0 0 0 rgba(61,190,122,0); } }
+.hero-dark .open-status { color: #fff; }
+.hero-dark .open-status + .hero-note { margin-top: 8px; }
+.site-footer .open-status { color: rgba(255,255,255,.85); margin-top: 6px; }
+
+/* Chiffres clés : largeur stable pendant le défilement */
+.hero-figures dt { font-variant-numeric: tabular-nums lining-nums; }
+
+/* Cartes Expertises : relief au survol */
+.pillars { perspective: 1200px; }
+.pillar-img { position: relative; transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); transition: transform .5s var(--ease), box-shadow .5s var(--ease); transform-style: preserve-3d; }
+.pillar:hover .pillar-img { transition-duration: .12s, .5s; box-shadow: 0 28px 50px rgba(5,14,32,.35); }
+.pillar-img::after { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity .4s var(--ease); background: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%), rgba(255,240,210,.28), rgba(255,240,210,0) 55%); }
+.pillar:hover .pillar-img::after { opacity: 1; }
+
+/* Transitions fluides entre les pages (navigateurs compatibles, sans JavaScript) */
+@view-transition { navigation: auto; }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: .35s; }
+@media (prefers-reduced-motion: reduce) { @view-transition { navigation: none; } }

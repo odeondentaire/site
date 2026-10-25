@@ -22,7 +22,7 @@
   <script type="application/ld+json">{{jsonLd}}</script>
   {{pageLd}}
 </head>
-<body class="{{bodyClass}}">
+<body class="{{bodyClass}}" data-hours="{{hoursData}}">
   <a class="skip" href="#content">Skip to content</a>
 
   <header class="site-header" data-header>
@@ -80,6 +80,7 @@
       <div>
         <h3 class="footer-title">Opening hours</h3>
         <ul class="hours"><li><span>Monday – Friday</span><span>9 am – 7 pm</span></li><li><span>Weekend</span><span>Closed</span></li></ul>
+        <p class="open-status" data-open-status hidden></p>
         <!--if:phone--><p>{{phoneLinksIntl}}</p><!--endif:phone-->
         <!--if:email--><p><a href="mailto:{{email}}">{{email}}</a></p><!--endif:email-->
       </div>

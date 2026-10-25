@@ -77,6 +77,8 @@ const vars = {
   metro: config.metro,
   hours: config.hours.map(([d, h]) => `<li><span>${d}</span><span>${h}</span></li>`).join(""),
   year: String(new Date().getFullYear()),
+  // Horaires lus par le badge « Ouvert maintenant » (main.js)
+  hoursData: JSON.stringify(config.openingHours || {}).replace(/"/g, "&quot;"),
 };
 const flags = { phone: phones.length > 0, email: !!config.email, rdvExternal, rdvInternal: !rdvExternal };
 

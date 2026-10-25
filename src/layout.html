@@ -22,7 +22,7 @@
   <script type="application/ld+json">{{jsonLd}}</script>
   {{pageLd}}
 </head>
-<body class="{{bodyClass}}">
+<body class="{{bodyClass}}" data-hours="{{hoursData}}">
   <a class="skip" href="#contenu">Aller au contenu</a>
 
   <header class="site-header" data-header>
@@ -91,6 +91,7 @@
       <div>
         <h3 class="footer-title">Horaires</h3>
         <ul class="hours">{{hours}}</ul>
+        <p class="open-status" data-open-status hidden></p>
         <!--if:phone--><p>{{phoneLinks}}</p><!--endif:phone-->
         <!--if:email--><p><a href="mailto:{{email}}">{{email}}</a></p><!--endif:email-->
         <p class="muted">Dr Richard Dahan conventionné secteur 1 · Carte Vitale acceptée</p>
