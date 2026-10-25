@@ -87,3 +87,4 @@ La feuille de style est intégrée dans chaque page au build (pas de fichier CSS
 - Plateau technique : confirmer la liste d'équipements (`src/pages/cabinet.html`)
 - Photos d'illustration des expertises : Unsplash (`src/assets/img/illustrations/`)
 - Vidéo d'ambiance de l'accueil : emplacement prévu en commentaire dans `src/pages/index.html`
+- Prix Ruban Rose : embargo jusqu'à fin décembre 2026. Ensuite, retirer `"draft": true` de `src/pages/actualites/prix-ruban-rose-ruban-du-sourire.html` et remplacer « en lice » par « lauréate » (accueil, praticiens, santé orale, actualités, llms.txt)

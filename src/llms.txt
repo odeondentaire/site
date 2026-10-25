@@ -1,8 +1,8 @@
 # Odéon Dentaire
 
-> Cabinet de chirurgie dentaire situé au 132 boulevard Saint-Germain, 75006 Paris (métro Odéon, lignes 4 et 10 ; Mabillon, ligne 10), dans le quartier de l'Odéon / Saint-Germain-des-Prés, accessible aussi par le passage du Commerce (cour du Commerce-Saint-André). Praticiens : Dr Richard Dahan et Dr Lenny Dahan, chirurgiens-dentistes. Ouvert du lundi au vendredi de 9 h à 19 h. Téléphone : +33 6 52 66 92 21 · +33 6 61 07 85 66. E-mail : odeondentaire@gmail.com. Dr Richard Dahan conventionné secteur 1, Carte Vitale acceptée. Consultations en français et en anglais.
+> Cabinet de chirurgie dentaire situé au 132 boulevard Saint-Germain, 75006 Paris (métro Odéon, lignes 4 et 10 ; Mabillon, ligne 10), dans le quartier de l'Odéon / Saint-Germain-des-Prés, accessible aussi par le passage du Commerce (cour du Commerce-Saint-André). Praticiens : Dr Richard Dahan et Lenny Dahan, chirurgiens-dentistes. Ouvert du lundi au vendredi de 9 h à 19 h. Téléphone : +33 6 52 66 92 21 · +33 6 61 07 85 66. E-mail : odeondentaire@gmail.com. Dr Richard Dahan conventionné secteur 1, Carte Vitale acceptée. Consultations en français et en anglais.
 
-English: Odéon Dentaire is a dental practice (dentist) in Paris 6th arrondissement, Odéon / Saint-Germain-des-Prés, at 132 boulevard Saint-Germain, 75006 Paris. Dentists: Dr Richard Dahan and Dr Lenny Dahan. Open Monday–Friday 9 am–7 pm. English spoken.
+English: Odéon Dentaire is a dental practice (dentist) in Paris 6th arrondissement, Odéon / Saint-Germain-des-Prés, at 132 boulevard Saint-Germain, 75006 Paris. Dentists: Dr Richard Dahan and Lenny Dahan. Open Monday–Friday 9 am–7 pm. English spoken.
 
 ## Soins proposés
 - [Parodontologie & régénération](https://odeondentaire.com/expertises/parodontologie/) : gingivite, parodontite, surfaçage, greffes de gencive, régénération, maintenance
@@ -13,8 +13,8 @@ English: Odéon Dentaire is a dental practice (dentist) in Paris 6th arrondissem
 - [Soins dentaires & urgences](https://odeondentaire.com/expertises/soins-dentaires-urgences/) : contrôle, détartrage, caries, dévitalisation, extractions, dents de sagesse, urgences dentaires (rage de dents, dent cassée)
 
 ## Praticiens
-- [Dr Richard Dahan](https://odeondentaire.com/equipe/#richard-dahan) : docteur en chirurgie dentaire (Université Paris Diderot), post-graduate en implantologie (New York University), exerce depuis 1985, installé à Paris 6ᵉ depuis 2001. Enseignant universitaire (Université Gustave Eiffel, ex-Paris-Est Marne-la-Vallée). Cofondateur de Dentiste Expo et président de son comité scientifique (2018–2021). Fondateur et président de la Société française de dentisterie en cancérologie (SFDC), lauréate du Prix Ruban Rose Qualité de Vie 2026.
-- [Dr Lenny Dahan](https://odeondentaire.com/equipe/#lenny-dahan) : docteur en chirurgie dentaire (Université Paris Cité), docteur en pharmacie (Université Paris Descartes), formé au service de médecine bucco-dentaire de l'hôpital Bretonneau (AP-HP). Chirurgie orale, parodontie, prothèse numérique, dentisterie adhésive.
+- [Dr Richard Dahan](https://odeondentaire.com/equipe/#richard-dahan) : docteur en chirurgie dentaire (Université Paris Diderot), post-graduate en implantologie (New York University), exerce depuis 1985. Enseignant universitaire (Université Gustave Eiffel, ex-Paris-Est Marne-la-Vallée). Cofondateur de Dentiste Expo et président de son comité scientifique (2018–2021). Fondateur et président de la Société française de dentisterie en cancérologie (SFDC), en lice pour le Prix Ruban Rose Qualité de Vie 2026.
+- [Lenny Dahan](https://odeondentaire.com/equipe/#lenny-dahan) : chirurgien-dentiste formé à l'Université Paris Cité (thèse d'exercice en cours), co-premier auteur de « Battle of the Bonds » (J Adhes Dent 2025), docteur en pharmacie (Université Paris Descartes), formé au service de médecine bucco-dentaire de l'hôpital Bretonneau (AP-HP). Chirurgie orale, parodontie, prothèse numérique, dentisterie adhésive.
 
 ## Pages utiles
 - [Accueil](https://odeondentaire.com/)
@@ -22,4 +22,4 @@ English: Odéon Dentaire is a dental practice (dentist) in Paris 6th arrondissem
 - [Le cabinet et le plateau technique](https://odeondentaire.com/cabinet/)
 - [Contact, accès et horaires](https://odeondentaire.com/contact/)
 - [Prendre rendez-vous](https://odeondentaire.com/rendez-vous/)
-- [Presse : tribune Prix Ruban Rose](https://odeondentaire.com/actualites/prix-ruban-rose-ruban-du-sourire/)
+- [Presse & actualités](https://odeondentaire.com/actualites/)

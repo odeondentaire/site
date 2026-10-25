@@ -118,7 +118,7 @@ const jsonLd = JSON.stringify({
       availableService: ["Parodontologie", "Implants dentaires", "Chirurgie guidée", "Greffe osseuse", "Facettes céramiques", "Éclaircissement dentaire", "Couronnes et bridges", "Soins dentaires et urgences", "Santé orale et cancer"].map((n) => ({ "@type": "MedicalProcedure", name: n })),
       employee: [
         { "@type": "Person", "@id": `${config.siteUrl}/equipe/#richard-dahan`, name: "Dr Richard Dahan", jobTitle: "Chirurgien-dentiste", honorificPrefix: "Dr", alumniOf: ["Université Paris Diderot", "New York University"], memberOf: "Société française de dentisterie en cancérologie (SFDC)", image: `${config.siteUrl}/assets/img/dr-richard-dahan.jpg`, url: `${config.siteUrl}/equipe/#richard-dahan` },
-        { "@type": "Person", "@id": `${config.siteUrl}/equipe/#lenny-dahan`, name: "Dr Lenny Dahan", jobTitle: "Chirurgien-dentiste", honorificPrefix: "Dr", alumniOf: ["Université Paris Cité", "Université Paris Descartes", "HEC Paris"], image: `${config.siteUrl}/assets/img/dr-lenny-dahan-portrait.jpg`, url: `${config.siteUrl}/equipe/#lenny-dahan` },
+        { "@type": "Person", "@id": `${config.siteUrl}/equipe/#lenny-dahan`, name: "Lenny Dahan", jobTitle: "Chirurgien-dentiste", alumniOf: ["Université Paris Cité", "Université Paris Descartes", "HEC Paris"], image: `${config.siteUrl}/assets/img/dr-lenny-dahan-portrait.jpg`, url: `${config.siteUrl}/equipe/#lenny-dahan` },
       ],
       sameAs: [config.rdvUrl].filter(Boolean),
     },
@@ -173,6 +173,7 @@ for (const file of walk(join(SRC, "pages"))) {
   const raw = readFileSync(file, "utf8");
   const m = raw.match(/^---\s*\n([\s\S]*?)\n---\s*\n/);
   const meta = m ? JSON.parse(m[1]) : {};
+  if (meta.draft) continue; // page en attente de publication (ex. prix sous embargo)
   const body = m ? raw.slice(m[0].length) : raw;
 
   let rel = relative(join(SRC, "pages"), file).replace(/\\/g, "/").replace(/\.html$/, "");
