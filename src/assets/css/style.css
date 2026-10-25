@@ -830,3 +830,17 @@ a, button, summary, label.consent, select { cursor: pointer; }
 .news-type p { margin: 0; font-family: var(--serif); font-size: clamp(20px, 1.6vw, 24px); color: rgba(255,255,255,.85); font-style: italic; }
 .news-type span { display: block; font-style: normal; font-size: clamp(30px, 2.6vw, 40px); color: var(--brass-light); margin-bottom: 6px; }
 .affiliations img[src*="aopj"] { height: 84px; }
+
+/* Accueil : diaporama du cabinet (3 photos, 7 s chacune, fondu enchaîné + zoom lent) */
+.hero-card-media img + img { position: absolute; inset: 0; opacity: 0; }
+.hero-card-media.is-slideshow img { animation: hero-slide 21s linear infinite; will-change: opacity, transform; }
+.hero-card-media.is-slideshow img:nth-of-type(1) { animation-delay: -1.7s; }
+.hero-card-media.is-slideshow img:nth-of-type(2) { animation-delay: 5.3s; }
+.hero-card-media.is-slideshow img:nth-of-type(3) { animation-delay: 12.3s; }
+@keyframes hero-slide {
+  0%   { opacity: 0; transform: scale(1.02); }
+  8%   { opacity: 1; }
+  33%  { opacity: 1; }
+  42%  { opacity: 0; transform: scale(1.12); }
+  100% { opacity: 0; transform: scale(1.12); }
+}

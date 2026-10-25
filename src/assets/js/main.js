@@ -131,6 +131,24 @@
     });
   }
 
+  // Accueil : diaporama des photos du cabinet (fondu + léger zoom), chargé après la page
+  const slideHost = document.querySelector("[data-slides]");
+  if (slideHost && !calm) {
+    window.addEventListener("load", () => {
+      const srcs = slideHost.dataset.slides.split("|");
+      const wide = window.innerWidth > 800 ? 1800 : 800;
+      const loads = srcs.map((src) => new Promise((ok) => {
+        const img = new Image();
+        img.alt = "";
+        img.decoding = "async";
+        img.onload = img.onerror = () => ok(img);
+        img.src = src.replace(/\.jpg$/, `-${wide}.webp`);
+        slideHost.appendChild(img);
+      }));
+      Promise.all(loads).then(() => slideHost.classList.add("is-slideshow"));
+    }, { once: true });
+  }
+
   // Formulaires (contact / demande de rendez-vous) → /api/contact (Cloudflare Pages Function + R2)
   document.querySelectorAll("form[data-form]").forEach((form) => {
     const status = form.querySelector(".form-status");
