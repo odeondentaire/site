@@ -164,6 +164,8 @@ function walk(dir) {
 rmSync(DIST, { recursive: true, force: true });
 mkdirSync(DIST, { recursive: true });
 cpSync(join(SRC, "assets"), join(DIST, "assets"), { recursive: true });
+// Fichier de clé IndexNow (Bing, Yandex… : signalement instantané des pages)
+for (const f of readdirSync(SRC).filter((f) => /^[0-9a-f]{32}\.txt$/.test(f))) cpSync(join(SRC, f), join(DIST, f));
 for (const f of ["_headers", "_redirects", "robots.txt", "llms.txt"]) {
   try { cpSync(join(SRC, f), join(DIST, f)); } catch {}
 }

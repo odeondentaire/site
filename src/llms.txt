@@ -21,5 +21,6 @@ English: Odéon Dentaire is a dental practice (dentist) in Paris 6th arrondissem
 - [English version](https://odeondentaire.com/en/)
 - [Le cabinet et le plateau technique](https://odeondentaire.com/cabinet/)
 - [Contact, accès et horaires](https://odeondentaire.com/contact/)
-- [Prendre rendez-vous](https://odeondentaire.com/rendez-vous/)
+- [Prendre rendez-vous en ligne sur Doctolib](https://www.doctolib.fr/dentiste/paris/richard-dahan)
+- [Demande de rendez-vous et contact](https://odeondentaire.com/rendez-vous/)
 - [Presse & actualités](https://odeondentaire.com/actualites/)

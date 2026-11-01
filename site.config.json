@@ -2,7 +2,7 @@
   "_comment": "Paramètres du site. Modifiez ces valeurs puis relancez `npm run build`. Les champs vides sont masqués sur le site.",
   "name": "Odéon Dentaire",
   "siteUrl": "https://odeondentaire.com",
-  "rdvUrl": "",
+  "rdvUrl": "https://www.doctolib.fr/dentiste/paris/richard-dahan",
   "phones": [
     { "tel": "+33652669221", "display": "06 52 66 92 21" },
     { "tel": "+33661078566", "display": "06 61 07 85 66" }
