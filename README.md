@@ -78,11 +78,11 @@ La feuille de style est intégrée dans chaque page au build (pas de fichier CSS
 
 - Données structurées schema.org (`Dentist`) générées par `build.mjs` à partir de `site.config.json`
 - Version anglaise : `src/pages/en/index.html` (gabarit `src/layout-en.html`), liée par `hreflang`
+- Après une mise en ligne importante : `npm run indexnow` signale les pages à Bing/Yandex (clé dans `src/<clé>.txt`)
 - `robots.txt` ouvert aux moteurs et aux robots IA, `llms.txt` (résumé du cabinet pour les assistants IA), `sitemap.xml` daté
 
 ## Reste à compléter
 
-- Lien de prise de rendez-vous (`rdvUrl`)
 - N° RPPS du Dr Lenny Dahan (mentions légales)
 - Plateau technique : confirmer la liste d'équipements (`src/pages/cabinet.html`)
 - Photos d'illustration des expertises : Unsplash (`src/assets/img/illustrations/`)

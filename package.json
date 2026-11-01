@@ -7,7 +7,10 @@
   "scripts": {
     "build": "node build.mjs",
     "preview": "node build.mjs && npx --yes wrangler dev",
-    "serve": "node build.mjs && python3 -m http.server 8080 -d dist"
+    "serve": "node build.mjs && python3 -m http.server 8080 -d dist",
+    "indexnow": "node scripts/indexnow.mjs"
   },
-  "engines": { "node": ">=18" }
+  "engines": {
+    "node": ">=18"
+  }
 }
