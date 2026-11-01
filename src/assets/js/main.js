@@ -93,27 +93,6 @@
     later(() => { update(); setInterval(update, 60000); });
   }
 
-  // Chiffres clés de l'accueil : défilement jusqu'à leur valeur à l'apparition
-  const counters = document.querySelectorAll(".hero-figures dt");
-  if (counters.length && !calm && "IntersectionObserver" in window) {
-    const run = (dt) => {
-      const node = dt.firstChild;
-      const target = parseInt(node?.nodeValue, 10);
-      if (!node || node.nodeType !== 3 || isNaN(target)) return;
-      const from = target > 1000 ? target - 25 : 0;
-      const t0 = performance.now(), dur = 1400;
-      const step = (t) => {
-        const k = Math.min(1, (t - t0) / dur), ease = 1 - Math.pow(1 - k, 4);
-        node.nodeValue = String(Math.round(from + (target - from) * ease));
-        if (k < 1) requestAnimationFrame(step);
-      };
-      node.nodeValue = String(from);
-      requestAnimationFrame(step);
-    };
-    const co = new IntersectionObserver((entries) => entries.forEach((en) => { if (en.isIntersecting) { run(en.target); co.unobserve(en.target); } }), { threshold: 0.6 });
-    counters.forEach((dt) => co.observe(dt));
-  }
-
   // Cartes Expertises : léger relief qui suit la souris (ordinateur uniquement)
   if (!calm && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
     document.querySelectorAll(".pillar").forEach((card) => {

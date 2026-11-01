@@ -11,6 +11,9 @@ English: Odéon Dentaire is a dental practice (dentist) in Paris 6th arrondissem
 - [Prothèse & réhabilitation](https://odeondentaire.com/expertises/prothese-rehabilitation/) : couronnes, bridges, prothèses sur implants, empreinte optique, CFAO
 - [Santé orale & cancérologie](https://odeondentaire.com/expertises/sante-orale-cancerologie/) : accompagnement bucco-dentaire avant, pendant et après les traitements du cancer
 - [Soins dentaires & urgences](https://odeondentaire.com/expertises/soins-dentaires-urgences/) : contrôle, détartrage, caries, dévitalisation, extractions, dents de sagesse, urgences dentaires (rage de dents, dent cassée)
+- [Facettes dentaires](https://odeondentaire.com/expertises/facettes-dentaires/) : indications, déroulé, suites, FAQ
+- [Inlay, onlay & restaurations collées](https://odeondentaire.com/expertises/inlay-onlay/) : alternative conservatrice à la couronne, dentisterie adhésive
+- [Déchaussement & greffe de gencive](https://odeondentaire.com/expertises/greffe-gencive-dechaussement/) : récession gingivale, bilan, greffe, suites
 
 ## Praticiens
 - [Dr Richard Dahan](https://odeondentaire.com/equipe/#richard-dahan) : docteur en chirurgie dentaire (Université Paris Diderot), post-graduate en implantologie (New York University), exerce depuis 1985. Enseignant universitaire (Université Gustave Eiffel, ex-Paris-Est Marne-la-Vallée). Cofondateur de Dentiste Expo et président de son comité scientifique (2018–2021). Fondateur et président de la Société française de dentisterie en cancérologie (SFDC), en lice pour le Prix Ruban Rose Qualité de Vie 2026.
