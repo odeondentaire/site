@@ -853,8 +853,10 @@ a, button, summary, label.consent, select { cursor: pointer; }
 /* Schéma « flux numérique » : 4 étapes reliées, point lumineux qui parcourt la ligne */
 .flow { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; position: relative; counter-reset: none; }
 .flow::before { content: ""; position: absolute; top: 36px; left: 36px; right: 36px; height: 1px; background: linear-gradient(90deg, rgba(210,183,132,.15), rgba(210,183,132,.6), rgba(210,183,132,.15)); }
-.flow::after { content: ""; position: absolute; top: 33px; left: 36px; width: 7px; height: 7px; border-radius: 50%; background: var(--brass-light); box-shadow: 0 0 14px 4px rgba(210,183,132,.55); animation: flow-dot 6s ease-in-out infinite; }
-@keyframes flow-dot { 0% { left: 36px; opacity: 0; } 8% { opacity: 1; } 92% { opacity: 1; } 100% { left: calc(100% - 43px); opacity: 0; } }
+.flow { container-type: inline-size; }
+.flow::after { content: ""; position: absolute; top: 33px; left: 36px; width: 7px; height: 7px; border-radius: 50%; background: var(--brass-light); box-shadow: 0 0 14px 4px rgba(210,183,132,.55); animation: flow-dot 6s ease-in-out infinite; will-change: transform, opacity; }
+/* Animation en transform (composée par la carte graphique, sans recalcul de mise en page) */
+@keyframes flow-dot { 0% { transform: translateX(0); opacity: 0; } 8% { opacity: 1; } 92% { opacity: 1; } 100% { transform: translateX(calc(100cqw - 79px)); opacity: 0; } }
 .flow li { position: relative; }
 .flow-ico { position: relative; z-index: 1; display: grid; place-items: center; width: 72px; height: 72px; border-radius: 50%; background: var(--navy-deep); border: 1px solid rgba(210,183,132,.5); color: var(--brass-light); margin-bottom: 22px; }
 .flow-ico svg { width: 34px; height: 34px; fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
