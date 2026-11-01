@@ -902,3 +902,6 @@ a, button, summary, label.consent, select { cursor: pointer; }
 .consent input[type="checkbox"]:focus-visible { outline: none; }
 .consent input[type="checkbox"]:focus-visible::before { outline: 2px solid var(--brass); outline-offset: 2px; }
 .consent input[type="checkbox"]:user-invalid::before { border-color: #b3261e; }
+
+/* En-têtes de page visibles immédiatement (pas d'attente du JavaScript : meilleur LCP) */
+.page-head .reveal { opacity: 1; transform: none; transition: none; }
