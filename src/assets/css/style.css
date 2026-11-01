@@ -870,3 +870,35 @@ a, button, summary, label.consent, select { cursor: pointer; }
   .flow li { padding-left: 96px; min-height: 72px; }
   .flow-ico { position: absolute; left: 0; top: 0; margin: 0; }
 }
+
+/* ==========================================================================
+   Accessibilité mobile : zones tactiles ≥ 48 px et textes ≥ 12 px
+   ========================================================================== */
+.brand-sub { font-size: 12px; letter-spacing: .32em; }
+.footer-title { font-size: 12.5px; }
+.burger { width: 48px; height: 48px; padding: 12px; }
+.brand { min-height: 48px; display: inline-flex; align-items: center; }
+.skip { min-height: 48px; display: inline-flex; align-items: center; }
+/* Liens isolés (flèches, fil d'Ariane, pied de page, sous-menu) : hauteur tactile de 48 px */
+.link-arrow, .breadcrumb a, .footer-links a, .site-footer a, .nav .sub a, .zoom-link a { min-height: 48px; display: inline-flex; align-items: center; }
+.breadcrumb a { min-width: 48px; }
+.footer-links li { margin: 0; }
+/* Liens dans le texte : zone tactile agrandie sans décaler la mise en page */
+.legal a, .timeline a, .consent a, .contact-block a, .faq a { display: inline-block; padding: 12px 0; margin: -12px 0; }
+.site-footer a[href^="tel:"], .site-footer a[href^="mailto:"], .contact-block a[href^="tel:"], .contact-block a[href^="mailto:"] { min-height: 48px; display: inline-flex; align-items: center; padding: 0; margin: 0; }
+/* Case de consentement : grande zone cliquable */
+.consent input[type="checkbox"] { width: 26px; height: 26px; }
+.consent { min-height: 48px; }
+.legal a, .timeline a, .consent a, .contact-block a, .faq a { padding: 14px 0; margin: -14px 0; min-width: 48px; text-align: center; }
+.info-bar a { display: inline-flex !important; align-items: center; min-height: 48px; margin: -12px 0 !important; }
+.footer-links a { min-width: 48px; }
+/* Case à cocher dessinée : zone tactile de 48 px, case visible de 24 px */
+.consent input[type="checkbox"] {
+  -webkit-appearance: none; appearance: none; width: 48px; height: 48px; margin: -12px -6px -12px -12px; flex: none; cursor: pointer;
+  background: none; border: 0; border-radius: 6px; position: relative;
+}
+.consent input[type="checkbox"]::before { content: ""; position: absolute; inset: 12px; border: 1.5px solid var(--taupe); border-radius: 5px; background: #fff; transition: background .2s, border-color .2s; }
+.consent input[type="checkbox"]:checked::before { background: var(--navy) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5' fill='none' stroke='%23fff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 18px no-repeat; border-color: var(--navy); }
+.consent input[type="checkbox"]:focus-visible { outline: none; }
+.consent input[type="checkbox"]:focus-visible::before { outline: 2px solid var(--brass); outline-offset: 2px; }
+.consent input[type="checkbox"]:user-invalid::before { border-color: #b3261e; }
