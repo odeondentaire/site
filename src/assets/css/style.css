@@ -258,7 +258,7 @@ body.has-hero .site-header:not(.is-scrolled) .btn-solid:hover { background: var(
 .pillar { position: relative; display: block; }
 .pillar-img { aspect-ratio: 3 / 4; overflow: hidden; background: var(--stone); }
 .pillar-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
-.pillar:hover .pillar-img img { transform: scale(1.05); }
+
 .pillar-num { font-family: var(--serif); font-style: italic; color: var(--brass); font-size: 18px; margin-top: 22px; display: block; }
 .pillar h3 { font-family: var(--serif); font-size: clamp(24px, 2vw, 30px); line-height: 1.15; margin: 6px 0 10px; }
 .pillar p { font-size: 15px; color: var(--taupe-dark); margin: 0 0 16px; }
@@ -462,7 +462,8 @@ body.has-hero .site-header:not(.is-scrolled) .btn-solid:hover { background: var(
 @media (max-width: 760px) { .rdv-sticky { display: flex; } .site-footer { padding-bottom: 110px; } }
 
 /* Révélation au défilement */
-.reveal { opacity: 0; transform: translateY(28px); transition: opacity 1s var(--ease), transform 1s var(--ease); }
+/* Contenu visible d'emblée : pas de fondu à chaque section (une seule animation signée : le diaporama de l'accueil) */
+.reveal { opacity: 1; transform: none; }
 .reveal.is-in { opacity: 1; transform: none; }
 .reveal-d1 { transition-delay: .12s; } .reveal-d2 { transition-delay: .24s; } .reveal-d3 { transition-delay: .36s; }
 .no-js .reveal { opacity: 1; transform: none; }
@@ -804,12 +805,8 @@ a, button, summary, label.consent, select { cursor: pointer; }
 /* Chiffres clés : largeur stable pendant le défilement */
 .hero-figures dt { font-variant-numeric: tabular-nums lining-nums; }
 
-/* Cartes Expertises : relief au survol */
-.pillars { perspective: 1200px; }
-.pillar-img { position: relative; transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); transition: transform .5s var(--ease), box-shadow .5s var(--ease); transform-style: preserve-3d; }
-.pillar:hover .pillar-img { transition-duration: .12s, .5s; box-shadow: 0 28px 50px rgba(5,14,32,.35); }
-.pillar-img::after { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity .4s var(--ease); background: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%), rgba(255,240,210,.28), rgba(255,240,210,0) 55%); }
-.pillar:hover .pillar-img::after { opacity: 1; }
+/* Cartes Expertises : la photo s'avance légèrement dans son cadre au survol */
+.pillar:hover .pillar-img img, .pillar:focus-visible .pillar-img img { transform: scale(1.03); }
 
 /* Transitions fluides entre les pages (navigateurs compatibles, sans JavaScript) */
 @view-transition { navigation: auto; }
@@ -905,3 +902,14 @@ a, button, summary, label.consent, select { cursor: pointer; }
 
 /* En-têtes de page visibles immédiatement (pas d'attente du JavaScript : meilleur LCP) */
 .page-head .reveal { opacity: 1; transform: none; transition: none; }
+
+/* ==========================================================================
+   Finitions (grille Impeccable) : surfaces du navigateur et typographie
+   ========================================================================== */
+::selection { background: var(--navy); color: #fff; }
+.bg-navy ::selection, .hero-dark ::selection, .site-footer ::selection { background: var(--brass-light); color: var(--navy-deep); }
+input, textarea, select { caret-color: var(--navy); }
+a { text-underline-offset: .18em; text-decoration-thickness: 1px; }
+html { scrollbar-color: var(--taupe) var(--paper); }
+h1, h2, h3, .display, .h2 { text-wrap: balance; }
+p, li, dd, blockquote { text-wrap: pretty; }

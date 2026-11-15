@@ -25,19 +25,6 @@
     if (e.key === "Escape" && nav.classList.contains("is-open")) burger.click();
   });
 
-  // Apparition progressive
-  const items = document.querySelectorAll(".reveal");
-  if ("IntersectionObserver" in window) {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((en) => {
-        if (en.isIntersecting) { en.target.classList.add("is-in"); io.unobserve(en.target); }
-      });
-    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
-    items.forEach((el) => io.observe(el));
-  } else {
-    items.forEach((el) => el.classList.add("is-in"));
-  }
-
   const calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const en = document.documentElement.lang === "en";
 
@@ -91,23 +78,6 @@
     // Hors du chemin critique : le formatage horaire (Intl) est coûteux au premier appel
     const later = window.requestIdleCallback || ((fn) => setTimeout(fn, 200));
     later(() => { update(); setInterval(update, 60000); });
-  }
-
-  // Cartes Expertises : léger relief qui suit la souris (ordinateur uniquement)
-  if (!calm && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
-    document.querySelectorAll(".pillar").forEach((card) => {
-      const img = card.querySelector(".pillar-img");
-      if (!img) return;
-      card.addEventListener("pointermove", (e) => {
-        const r = img.getBoundingClientRect();
-        const x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
-        img.style.setProperty("--rx", `${(-y * 6).toFixed(2)}deg`);
-        img.style.setProperty("--ry", `${(x * 8).toFixed(2)}deg`);
-        img.style.setProperty("--gx", `${((x + 0.5) * 100).toFixed(1)}%`);
-        img.style.setProperty("--gy", `${((y + 0.5) * 100).toFixed(1)}%`);
-      });
-      card.addEventListener("pointerleave", () => { img.style.removeProperty("--rx"); img.style.removeProperty("--ry"); });
-    });
   }
 
   // Accueil : diaporama des photos du cabinet (fondu + léger zoom), chargé après la page
