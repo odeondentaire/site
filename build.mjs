@@ -3,6 +3,7 @@
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, statSync, cpSync, rmSync } from "node:fs";
 import { join, dirname, relative } from "node:path";
 import { createHash } from "node:crypto";
+import { execFileSync } from "node:child_process";
 
 const ROOT = dirname(new URL(import.meta.url).pathname);
 const SRC = join(ROOT, "src");
@@ -137,10 +138,25 @@ function render(tpl, extra = {}) {
   return tpl.replace(/\{\{(\w+)\}\}/g, (m, k) => (k in v ? v[k] : m));
 }
 
+// Date de dernière modification d'un fichier (historique git), sinon aujourd'hui
+const today = new Date().toISOString().slice(0, 10);
+function lastChanged(file) {
+  try { return execFileSync("git", ["log", "-1", "--format=%cs", "--", file], { cwd: ROOT, encoding: "utf8" }).trim() || today; } catch { return today; }
+}
+const MOIS = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
+const moisAnnee = (d) => `${MOIS[+d.slice(5, 7) - 1]} ${d.slice(0, 4)}`;
+const RICHARD = { "@id": `${config.siteUrl}/equipe/#richard-dahan` };
+
 // Données structurées propres à chaque page : fil d'Ariane et questions fréquentes
 const strip = (h) => h.replace(/<[^>]+>/g, "").replace(/&amp;/g, "&").replace(/\s+/g, " ").trim();
-function pageJsonLd(body, path, meta) {
+function pageJsonLd(body, path, meta, modified) {
   const graph = [];
+  const url = config.siteUrl + path;
+  if (meta.article) {
+    graph.push({ "@type": ["Article", "MedicalWebPage"], "@id": `${url}#article`, url, headline: meta.article.headline || meta.fullTitle || meta.title, description: meta.description, inLanguage: "fr-FR", image: config.siteUrl + (meta.image || "/assets/img/facade-cabinet.jpg"), datePublished: meta.article.published, dateModified: modified, author: RICHARD, reviewedBy: RICHARD, lastReviewed: modified, publisher: { "@id": `${config.siteUrl}/#cabinet` }, isPartOf: { "@id": `${config.siteUrl}/#website` } });
+  } else if (meta.nav === "expertises" && path !== "/expertises/") {
+    graph.push({ "@type": "MedicalWebPage", "@id": `${url}#page`, url, name: meta.fullTitle || meta.title, description: meta.description, inLanguage: "fr-FR", reviewedBy: RICHARD, lastReviewed: modified, publisher: { "@id": `${config.siteUrl}/#cabinet` } });
+  }
   const bc = body.match(/<p class="breadcrumb">([\s\S]*?)<\/p>/);
   if (bc) {
     const items = [...bc[1].matchAll(/<a href="([^"]+)">([\s\S]*?)<\/a>/g)].map(([, href, label]) => ({ url: config.siteUrl + href.replace(/([^/])$/, "$1/"), name: strip(label) }));
@@ -172,6 +188,7 @@ for (const f of ["_headers", "_redirects", "robots.txt", "llms.txt"]) {
 }
 
 const urls = [];
+const fullText = [];
 for (const file of walk(join(SRC, "pages"))) {
   const raw = readFileSync(file, "utf8");
   const m = raw.match(/^---\s*\n([\s\S]*?)\n---\s*\n/);
@@ -185,6 +202,13 @@ for (const file of walk(join(SRC, "pages"))) {
   const path = "/" + rel;
   const out = join(DIST, rel, "index.html");
 
+  const modified = lastChanged(file);
+  // Pages de soins et conseils : mention visible du praticien relecteur et de la date
+  let pageBody = body;
+  if ((meta.nav === "expertises" && path !== "/expertises/") || meta.article) {
+    const who = meta.article ? "Par le Dr Richard Dahan, chirurgien-dentiste" : "Contenu relu par le Dr Richard Dahan, chirurgien-dentiste";
+    pageBody = body.replace(/(<\/p>\s*)(<\/div>\s*<\/header>)/, `$1<p class="reviewed">${who} · mis à jour en ${moisAnnee(modified)}</p>\n  $2`);
+  }
   const nav = meta.nav || "";
   const lang = meta.lang || "fr";
   const alt = meta.alternate; // URL de la version dans l'autre langue
@@ -199,9 +223,9 @@ for (const file of walk(join(SRC, "pages"))) {
     canonical: config.siteUrl + path,
     bodyClass: meta.bodyClass || "",
     ogImage: config.siteUrl + (meta.image || "/assets/img/facade-cabinet.jpg"),
-    content: render(body, lang === "en" && rdvExternal ? { rdvAttrs: 'target="_blank" rel="noopener" title="Opens Doctolib in a new tab"' } : {}),
+    content: render(pageBody, lang === "en" && rdvExternal ? { rdvAttrs: 'target="_blank" rel="noopener" title="Opens Doctolib in a new tab"' } : {}),
     ...(lang === "en" && rdvExternal ? { rdvAttrs: 'target="_blank" rel="noopener" title="Opens Doctolib in a new tab"' } : {}),
-    pageLd: pageJsonLd(body, path, meta),
+    pageLd: pageJsonLd(body, path, meta, modified),
     ...Object.fromEntries(["expertises", "cabinet", "equipe", "actualites", "contact"].map((k) => [`nav_${k}`, nav === k ? 'aria-current="page"' : ""])),
   });
   // « 6ᵉ » (exposant Unicode) : Google ne le rapproche pas toujours de « 6e » / « 6ème ».
@@ -213,7 +237,8 @@ for (const file of walk(join(SRC, "pages"))) {
   const linked = responsiveImages(sixieme).replace(/href="(\/(?!assets\/|api\/)[^"#?.]*[^"#?./])(#[^"]*)?"/g, (m, p1, hash = "") => `href="${p1}/${hash}"`);
   mkdirSync(dirname(out), { recursive: true });
   writeFileSync(out, linked);
-  if (!meta.noindex) urls.push(path);
+  if (!meta.noindex) urls.push({ path, modified });
+  if (lang === "fr" && !meta.noindex && path !== "/404/") fullText.push({ path, title: meta.fullTitle || meta.title || config.name, html: linked });
 }
 
 // 404 à la racine pour Cloudflare Pages
@@ -222,8 +247,25 @@ cpSync(join(DIST, "404", "index.html"), join(DIST, "404.html"));
 writeFileSync(
   join(DIST, "sitemap.xml"),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls
-    .filter((u) => u !== "/404/")
-    .map((u) => `  <url><loc>${config.siteUrl}${u}</loc><lastmod>${new Date().toISOString().slice(0, 10)}</lastmod></url>`)
+    .filter((u) => u.path !== "/404/")
+    .map((u) => `  <url><loc>${config.siteUrl}${u.path}</loc><lastmod>${u.modified}</lastmod></url>`)
     .join("\n")}\n</urlset>\n`
+);
+
+// llms-full.txt : le texte intégral des pages, pour les assistants IA (ChatGPT, Perplexity, Gemini…)
+const toText = (h) => {
+  const main = (h.match(/<main[^>]*>([\s\S]*?)<\/main>/) || [, h])[1];
+  return main
+    .replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>|<svg[\s\S]*?<\/svg>/g, "")
+    .replace(/<\/(h[1-6])>/g, "\n").replace(/<h([1-6])[^>]*>/g, (m, n) => "\n" + "#".repeat(+n + 1) + " ")
+    .replace(/<li[^>]*>/g, "\n- ").replace(/<summary[^>]*>/g, "\n**").replace(/<\/summary>/g, "**\n")
+    .replace(/<\/(p|div|section|header|ul|details|article|figure)>/g, "\n").replace(/<br\s*\/?>/g, "\n")
+    .replace(/<[^>]+>/g, " ").replace(/&amp;/g, "&").replace(/&nbsp;/g, " ").replace(/&quot;/g, '"').replace(/&#39;/g, "'")
+    .replace(/[ \t]+/g, " ").replace(/ *\n */g, "\n").replace(/\n{3,}/g, "\n\n").trim();
+};
+writeFileSync(
+  join(DIST, "llms-full.txt"),
+  `# ${config.name} — texte intégral du site\n\n> Cabinet dentaire, ${a.street}, ${a.postalCode} ${a.city} (Paris 6e). Téléphone ${phones[0]?.display || ""}. Résumé : ${config.siteUrl}/llms.txt\n\n` +
+    fullText.sort((x, y) => (x.path === "/" ? -1 : y.path === "/" ? 1 : 0)).map((p) => `---\n\n# ${p.title.replace(/6ᵉ/g, "6e")}\nURL : ${config.siteUrl}${p.path}\n\n${toText(p.html)}\n`).join("\n")
 );
 console.log(`${urls.length} pages générées dans dist/`);

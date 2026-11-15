@@ -944,3 +944,8 @@ sup { font-size: .62em; line-height: 0; vertical-align: .55em; }
 .split-body .eyebrow, .bg-navy .split-body .eyebrow { color: #fff; }
 sup, .plaque small sup { font-size: max(12px, .62em); }
 .plaque small { font-size: 13px; }
+
+/* Mention du praticien relecteur (pages de soins et conseils) */
+.reviewed { margin: 22px 0 0; font-size: 14px; color: var(--taupe); display: flex; align-items: center; gap: 10px; }
+.reviewed::before { content: ""; width: 22px; height: 22px; flex: none; border-radius: 50%; background: url("/assets/img/dr-richard-dahan-portrait-480.webp") center 25% / cover, var(--stone); }
+.article .zoom-link .eyebrow, .article p.eyebrow { color: #fff; }
