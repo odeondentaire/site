@@ -110,7 +110,7 @@ const jsonLd = JSON.stringify({
       geo: a.lat ? { "@type": "GeoCoordinates", latitude: a.lat, longitude: a.lng } : undefined,
       hasMap: `https://www.openstreetmap.org/?mlat=${a.lat}&mlon=${a.lng}#map=18/${a.lat}/${a.lng}`,
       openingHoursSpecification: oh ? [{ "@type": "OpeningHoursSpecification", dayOfWeek: oh.days, opens: oh.opens, closes: oh.closes }] : undefined,
-      areaServed: ["Paris 6e", "Saint-Germain-des-Prés", "Odéon", "Quartier latin", "Paris"],
+      areaServed: ["Paris 6e arrondissement", "75006", "Odéon", "Saint-Germain-des-Prés", "Saint-Michel", "Quartier latin", "Luxembourg", "Paris"],
       availableLanguage: ["French", "English"],
       paymentAccepted: "Carte Vitale (tiers payant selon actes), carte bancaire",
       isAcceptingNewPatients: true,
@@ -204,8 +204,13 @@ for (const file of walk(join(SRC, "pages"))) {
     pageLd: pageJsonLd(body, path, meta),
     ...Object.fromEntries(["expertises", "cabinet", "equipe", "actualites", "contact"].map((k) => [`nav_${k}`, nav === k ? 'aria-current="page"' : ""])),
   });
+  // « 6ᵉ » (exposant Unicode) : Google ne le rapproche pas toujours de « 6e » / « 6ème ».
+  // Dans les titres, balises et données structurées → « 6e » ; dans le texte → « 6<sup>e</sup> ».
   // Liens internes vers l'URL finale (avec « / ») : pas de redirection pour Google
-  const linked = responsiveImages(html).replace(/href="(\/(?!assets\/|api\/)[^"#?.]*[^"#?./])(#[^"]*)?"/g, (m, p1, hash = "") => `href="${p1}/${hash}"`);
+  const sixieme = html
+    .replace(/<title>[\s\S]*?<\/title>|<script[\s\S]*?<\/script>|<[^>]+>/g, (m) => m.replace(/6ᵉ/g, "6e"))
+    .replace(/6ᵉ/g, "6<sup>e</sup>");
+  const linked = responsiveImages(sixieme).replace(/href="(\/(?!assets\/|api\/)[^"#?.]*[^"#?./])(#[^"]*)?"/g, (m, p1, hash = "") => `href="${p1}/${hash}"`);
   mkdirSync(dirname(out), { recursive: true });
   writeFileSync(out, linked);
   if (!meta.noindex) urls.push(path);
