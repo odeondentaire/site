@@ -937,4 +937,4 @@ sup { font-size: max(12px, .62em); }
 .reviewed { margin: 22px 0 0; font-size: 14px; color: var(--taupe); display: flex; align-items: center; gap: 10px; }
 .reviewed::before { content: ""; width: 22px; height: 22px; flex: none; border-radius: 50%; background: url("/assets/img/dr-richard-dahan-portrait-480.webp") center 25% / cover, var(--stone); }
 .eyebrow sup, .press-meta sup { text-transform: lowercase; font-size: .78em; vertical-align: .5em; letter-spacing: .05em; }
-.page-hero-img img[src*="prothese-bridge"] { object-position: 50% 68%; } .pillar-img img[src*="paro-curettes"] { object-position: 40% 50%; }
+.page-hero-img img[src*="prothese-couronnes"] { object-position: 60% 62%; } .pillar-img img[src*="prothese-couronnes"] { object-position: 88% 50%; } .pillar-img img[src*="paro-curettes"] { object-position: 40% 50%; }
